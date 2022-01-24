@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+    <!-- Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
 
     <!-- Website tab Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">    
@@ -21,18 +25,20 @@
     <link rel="manifest" href="assets/img/site.webmanifest">
 
     <link rel="stylesheet" href="assets/css/global.css"> 
+
+    <!-- Accept Cookies pop-up -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 <body>
 <h1 class="slide-in-top">Hi, I&#8217;m Camille Nguyen</h1>
 
-<h2 class="slide-in-left">Web / UI Designer</h2>
+<h2 class="text-focus-in">Web / UI Designer</h2>
 
 <img src="assets/img/homepage.jpg" alt="Web Design">  
 
 <p>I created this website to showcase some of my recent web design work.</p>  
 
 <h3>Sample Web Pages</h3>
-<!--This is a comment :)-->
 
 <p><a href="exercises/page-1.html">A Tale of Two Cities</a></p>
 <p><a href="exercises/page-2.html">IBAT Chocolates</a></p>
@@ -50,8 +56,28 @@
 
 <div class="important-note-box github-page">  
     <h3>Important Note</h3>
-    <p>You can find my github page <a href="https://github.com/camille-nguyen/camille-nguyen.github.io">here</a>.</p>
+    <p>You can find my github page <a rel="noopener" href="https://github.com/camille-nguyen/camille-nguyen.github.io" target="_blank">here</a>.</p>
   </div>
+
+  <!-- Cookies consent -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#e9aea5",
+      "text": "#ffffff"
+    },
+    "button": {
+      "background": "#ee8b83",
+      "text": "#ffffff"
+    }
+  },
+  "content": {
+    "href": "https://camille-nguyen.github.io/privacy.html"
+  }
+});
+</script>
     
 </body>
 </html>
