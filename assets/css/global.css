@@ -50,13 +50,13 @@ h3 {
 
 h4 {
     font-family: 'Playfair Display', sans-serif;
-    font-size: 70px;
+    font-size: 500%;
     font-weight: normal;
     letter-spacing: 50px;
-    margin-top: 150px;
-    margin-left: 950px;
+    margin-top: 10%;
+    margin-left: 57%;
     line-height: 1.2;
-    transform: rotate(90deg) !important;
+    transform: rotate(90deg);
     color: #9D5353;
     position: fixed;
 }
