@@ -1,0 +1,11 @@
+/* Add your custom styles here */
+section.section-style-1.theme-light { background-color: var(--green-800) }
+section.section-style-1.theme-light h2 { color: var(--white-000) }
+section.section-style-1.theme-light p { color: var(--white-000) } 
+section.section-style-1.theme-light li { color: var(--white-000) } 
+
+section.section-style-2.theme-light { background-color: var(--trend-400) }
+
+section.section-style-2.theme-light { background-color: var(--white-000) }
+
+body { font-family: 'Playfair Display', serif; }
