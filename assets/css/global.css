@@ -21,6 +21,19 @@ body {
     text-align: center;
 }
 
+/* == FLEXBOX PARENT CONTAINER == */
+.container-flexbox { 
+  display: flex; 
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.section {
+  padding: 12px; 
+  margin-bottom: 40px; 
+  width: 50%
+}
+
 h1 {
     font-family: 'Playfair Display', sans-serif;
     font-size: 78px;

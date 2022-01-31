@@ -1,0 +1,50 @@
+/* Global font */
+body { font-family: 'Neucha', serif }
+
+
+/* Add your custom styles here */
+section.section-style-1.theme-light { background-color: var(--purple-400) }
+section.section-style-1.theme-light { background-color: var(--purple-500) }
+section > p.standfirst {
+    font-size: calc(24px + (36 - 24) * ((100vw - 320px) / (1600 - 320)));       
+}
+
+section.section-style-2.theme-light { background-color: var(--pink-300) }
+section.section-style-2.theme-light h2 { color: var(--red-600) }
+
+section.section-style-3.theme-light { background-color: var(--green-200) }
+section.section-style-3.theme-light { background-color: var(--green-100) }
+section.section-style-3.theme-light { background-color: var(--green-200) }
+section.section-style-3.theme-light h2 { color: var(--red-600) }
+
+section.section-style-4.theme-light { background-color: var(--purple-500) }
+section.section-style-4.theme-light h2 { color: var(--white-000) }
+section.section-style-4.theme-light p { color: var(--white-000) } 
+section.section-style-4.theme-light li { color: var(--white-000) } 
+
+section.section-style-5.theme-light h2 { color: var(--red-600) }
+section.section-style-5.theme-light { background-color: var(--yellow-300) }
+section.section-style-5.theme-light { background-color: var(--yellow-300) }
+section.section-style-5.theme-light { background-color: var(--yellow-200) }
+
+.hero-block h1 {
+    font-size: calc(60px + (132 - 60) * ((100vw - 320px)/ (1600 - 320)));  
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+                        
+.hero-block h2 {
+    font-size: calc(32px + (64 - 32) * ((100vw - 320px)/ (1600 - 320)));  
+    letter-spacing: 1px;
+}
+                        
+.cols-2-split .col-2 h2 {
+    font-size: calc(32px + (58 - 32) * ((100vw - 320px) / (1600 - 320)));  
+    letter-spacing: 2px;
+}
+                        
+.cols-2-split .col-2 p {
+    font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1600 - 320)));  
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
