@@ -221,3 +221,13 @@ footer { background-color: var(--indigo-700) }
 #contact-form { background-color: var(--purple-600) }
 #contact-form p a:link { background-color: var(--purple-600) }
 #contact-form p a:visited { background-color: var(--purple-600) }
+
+
+/* Nav bar */
+.container-menu a:link,
+.container-menu a:visited { color: var(--white-000) }
+.container-menu a#btn-cta:link,
+.container-menu a#btn-cta:visited { background-color: var(--red-500) }
+.container-menu.menu-desktop { background-color: var(--indigo-700) }
+.container-menu.menu-mobile { background-color: var(--indigo-700) }
+.container-menu.menu-mobile ul.mobile-display { background-color: var(--indigo-700) }
