@@ -35,7 +35,7 @@ html, body {
       top: 50%;
       height: 50vh;
       width: 100%;
-      background: url(next-cover.jpg) no-repeat 50% 50%;
+      background: url(../../next-cover.jpg) no-repeat 50% 50%;
       background-size: cover;
       opacity: 0;
       animation: appear-text 0.0001s linear forwards;
@@ -91,7 +91,7 @@ html, body {
       transform: translate(-50%, -50%);
       width: 45%;
       height: 50%;
-      background: url(album-art.jpg) no-repeat 50% 50%;
+      background: url(../../album-art.jpg) no-repeat 50% 50%;
       background-size: cover;
       opacity: 0;
       animation: appear-text 0.0001s linear forwards;
@@ -104,7 +104,7 @@ html, body {
       top: 36%;
       left: 33%;
       transform: translate(-50%, -50%);
-      color: #cdbba5;
+      color: #F5EFE3;
       font-family: Poppins;
       text-transform: uppercase;
       letter-spacing: 4px;
@@ -128,6 +128,7 @@ html, body {
       border-radius: 50%;
       border: 1px solid rgba(255, 255, 255, 0.3);
       padding: 2em;
+      cursor: pointer;
 }
 
 .about {
@@ -151,6 +152,23 @@ html, body {
       letter-spacing: 4px;
       font-size: 10px;
       cursor: pointer;
+}
+
+.info {
+    animation-delay: 1.5s;
+    position: absolute;
+    top: 66%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
+
+.info p {
+    color: #bcac98;
+    font-family: Poppins;
+    font-style: italic;
+    letter-spacing: 4px;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 .about span:hover {

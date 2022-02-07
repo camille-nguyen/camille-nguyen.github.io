@@ -21,14 +21,14 @@
 
               <div class="cover">
                     <div class="play">
-                          <ion-icon name="play"></ion-icon>
+                          <img src="play.png" id="icon">
                     </div>
               </div>
 
               <div class="data">
 
                     <div class="album-name">
-                    <p id="name">When I Give My Love To You</p>
+                    <p id="name">Chez Nous</p>
                     </div>
 
                     <div class="album-artist">
@@ -53,7 +53,7 @@
 
                           <h1>Song info</h1>
                           <div class="album-name2">
-                          <p><ion-icon name="radio"></ion-icon> &nbsp;<span>When I Give My Love To You</span></p>
+                          <p><ion-icon name="radio"></ion-icon> &nbsp;<span>Chez Nous</span></p>
                           </div>
 
                           <div class="album-artist2">
@@ -61,8 +61,12 @@
                           </div>
 
                           <div class="album-genre2">
-                          <p><ion-icon name="musical-notes"></ion-icon>  &nbsp;<span>Skin Dive</span></p>
+                          <p><ion-icon name="musical-notes"></ion-icon>  &nbsp;<span>Blue Pacific</span></p>
                           </div>
+                    </div>
+
+                    <div class="info">
+                        <p>Michael Franks occupied a uniquely popular niche in the world of soft jazz and pop music in the 1970s; he was one of those crossover artists who defied easy categorization on the radio (which made him ideal for FM radio of the period), and found an audience mostly among college students.</p>
                     </div>
 
               </div>
@@ -76,11 +80,11 @@
                     <div class="data2">
 
                           <div class="album-name3">
-                          <p id="name">Think about it</p>
+                          <p id="name">When I give my Love to You</p>
                           </div>
 
                           <div class="album-artist3">
-                          <p id="artist">Vhyce alven</p>
+                          <p id="artist">Michael Franks</p>
                           </div>
 
                     </div>
@@ -96,7 +100,25 @@
         </div>
 
   </div>
+
+  <audio id="mySong">
+    <source src="chez-nous.mp3" type="audio/mp3">
+    </audio>
+
   <script type="text/javascript">
+
+    var mySong = document.getElementById("mySong");
+    var icon = document.getElementById("icon");
+
+    icon.onclick = function(){
+        if (mySong.paused()){
+            mySong.play();
+            icon.src = "pause.png";
+        } else{
+            mySong.pause();
+            icon.src = "play.png";
+        }
+    }
 
   TweenMax.from(".left-col", 2, {
         width: "0%",
