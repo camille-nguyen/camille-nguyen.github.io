@@ -134,7 +134,7 @@
 }
 
 /* Global font */
-body { font-family: var(--global-font) }
+body { font-family: 'Titillium Web', sans-serif; }
 
 header.hero-block { background-color: var(--indigo-700) }
 header.hero-block h1 { color: var(--red-500) }
