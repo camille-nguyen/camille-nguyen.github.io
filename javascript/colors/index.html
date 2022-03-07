@@ -1,0 +1,85 @@
+     <!DOCTYPE html><html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Random Colour Generator</title>
+
+            <!-- Link to version 6.0 of Font Awesome -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+            <style>body{text-align:center}@media (min-width:1200px){header{padding:2% calc((100% - 800px)/ 2) 3% calc((100% - 800px)/ 2);margin:0 auto}}@media (min-width:1025px) and (max-width:1199px){header{padding:3% 14% 4% 14%}}@media (min-width:768px) and (max-width:1024px){header{padding:3% 8% 4% 8%}}@media (max-width:767px){header{padding:6% 13% 9% 13%}}h1 .font-mono{color:#888}body{font-family:sans-serif;background-color:lightpink;}li,p{font-size:18px;line-height:1.5}li{margin-bottom:12px}
+
+            .btn {
+                background-color: blueviolet;
+                color: #fff;
+                padding: 16px 40px;
+                font-size: 20px;
+                outline: 0;
+                border-width: 0;
+                margin-top: 72px;
+                border-radius: 50px;
+                display: block;
+                text-align: center;
+                margin-left: auto; margin-right: auto;
+            }
+
+            .btn:hover {
+                background-color: darkmagenta;
+            }
+
+            .btn i {
+                margin-right: 10px;
+            }
+
+            h2 {
+                background-color: #222;
+                color: #fff;
+                display: inline-block;
+                padding: 10px 20px;
+            }
+
+            #color-display {
+                font-weight: 400;
+                color: lightgray;
+            }
+
+            </style>
+
+
+        </head>
+        <body>
+        <header>
+            <h1>Random Colour Generator</h1>
+        </header>
+        <main>
+
+            <h2>Background Colour: &nbsp;<span id="color-display">#dbf4e4</span></h2>
+            <button class="btn" id="btn-color"><i class="fa-solid fa-paint-roller"></i> Click me</button>
+        </main>
+
+        <!-- JavaScript code start below -->
+        <script>
+
+            const arrHex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+            const btnColor = document.querySelector("#btn-color");
+            const strColorDisplay = document.querySelector("#color-display");
+
+            btnColor.addEventListener("click", function(){
+                let strHexColor = "#";
+                for (let i = 0; i< 6; i++){
+                    strHexColor += arrHex[getRandomNumber()];
+                }
+                console.log(strHexColor);
+                strColorDisplay.textContent = strHexColor;
+                document.body.style.backgroundColor = strHexColor;
+            });
+
+            function getRandomNumber(){
+                console.log(Math.floor(Math.random() * arrHex.length))
+                console.log("Array length: " + arrHex.length)
+                return Math.floor(Math.random() * arrHex.length);
+            }
+
+       </script>
+
+    </body>
+    </html>
