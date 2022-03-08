@@ -196,9 +196,7 @@ footer ul.footer-icons li a:focus i,
 footer ul.footer-icons li a:hover i, 
 footer ul.footer-icons li a:active i { color: var(--gray-500)}
 
-footer { background-color: var(--indigo-700) }
-
-
+footer { background-color: var(--indigo-700)}
 
 .container-contact-form { background-color: var(--purple-200) }
 #contact-form h2 { color: var(--white-000) }
