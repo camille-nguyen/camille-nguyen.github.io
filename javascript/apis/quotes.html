@@ -119,6 +119,7 @@
                             const upperNum = lowerNum + 8; 
                             let html_block = "";
                             for (i= lowerNum; i <= upperNum; i++) { 
+                                // Verify if the author value is null
                                 if (data[i].author == "null") {
                                     upperNum += 1;
                                     i++;
