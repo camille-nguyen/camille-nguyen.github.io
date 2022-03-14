@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotations Generator</title>
+    <meta name="description" content="An example of using the JavaScript Fetch API to update the content of a web page from a remote server.">
+
+    <!-- Font Awesome 6.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://munnelly.com/lunevedy/assets/css/lunevedy.css">
+
+    <!-- Quotes font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&display=swap" rel="stylesheet">
+
+    <style>
+
+        body, section { background-color: #E5E3C9 }
+        .btn-solid { 
+            margin-top: 20px;
+            padding: 14px 20px;
+            display: inline-block;
+            font-size: 20px;
+            background-color: #05595B;
+            color: #fff;
+            border-color: #05595B;
+            border-radius: 12px;
+        }
+
+        .btn-solid:hover { 
+            background-color: #062C30;
+            border-color: #062C30;
+            color: #fff
+        }
+
+        .btn-solid i {
+            margin-right: 12px;
+        }
+
+        .col-3 {
+            border: 1px solid;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .col-3 p {
+            font-family: 'Raleway', 'serif';
+        }
+    </style>
+
+
+
+</head>
+<body>
+    
+
+
+	<section class="container-flex text-center" style="padding-bottom: 0">
+		<div class="col-1 text-center">
+			<h2>Inspiring Quotations</h2>
+			<h3>Click the button below to be inspired by nine uplifting quotations from wise men and women through the ages.</h3>
+
+            <a class="btn btn-solid" id="btn-quotes"><i class="fa-solid fa-comment"></i>View Quotes</a>
+		</div>
+
+    </section>
+
+    <!-- This section will be updated by JavaScript -->
+    <section class="container-flex text-center" id="quotes-box">
+
+            <div class="col-3">
+
+                <p>Text of quotation here 1.</p>
+
+                <h3>Author 1</h3>
+
+            </div>
+
+            <div class="col-3">
+                
+                <p>Text of quotation here 2.</p>
+
+                <h3>Author 2</h3>
+
+            </div>
+
+            <div class="col-3">
+
+                <p>Text of quotation here 3.</p>
+
+                <h3>Author 3</h3>
+
+            </div>
+
+
+	</section><!-- end of section updated by JavaScript-->
+
+    <!-- Quotation endpoint:   https://type.fit/api/quotes -->
+
+
+    
+    <script>
+        document.querySelector("#btn-quotes").addEventListener("click", fetchRandomNumQuotes);
+
+        async function fetchRandomNumQuotes(num) { 
+                await fetch('https://type.fit/api/quotes')
+    
+                    .then(response => {
+                        if (response.status !== 200) {
+                            console.log('Error Status Code: ' + response.status);
+                            return;
+                        }
+                        response.json().then((data) => {
+                            const lowerNum = getRandomInt(0, data.length-10);
+                            const upperNum = lowerNum + 8; 
+                            let html_block = "";
+                            for (i= lowerNum; i <= upperNum; i++) { 
+                                if (data[i].author == "null") {
+                                    upperNum += 1;
+                                    i++;
+                                }
+                                else{
+                                    //console.log(`${[i]}: ${data[i].text} Source: ${data[i].author}`);
+                                    html_block = html_block + `<div class="col-3"><p><i>&#8220;${data[i].text}&#8221</i></p><h3>${data[i].author}</h3></div>`
+                                    document.getElementById("quotes-box").innerHTML = html_block;
+                                }
+                                
+                            }
+                        });
+    
+                    })
+    
+                    .catch(error => {
+                        // handle any error
+                    });
+    
+            }
+    
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1) + min); 
+            }
+
+    </script>
+
+</body>
+</html>
