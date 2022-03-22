@@ -169,7 +169,18 @@ header.hero-block a.btn-primary:active { border-color: var(--indigo-700) }
 
 
 
-.theme-one { background-color: var(--indigo-100) }
+.theme-one { 
+    background-image:#ffa899;background-image:  
+    radial-gradient(at 23% 44%, hsla(226,63%,60%,1) 0, transparent 58%),  
+    radial-gradient(at 0% 100%, hsla(59,89%,77%,1) 0, transparent 44%),  
+    radial-gradient(at 75% 57%, hsla(306,90%,75%,1) 0, transparent 51%),  
+    radial-gradient(at 74% 90%, hsla(243,98%,63%,1) 0, transparent 41%),  
+    radial-gradient(at 68% 63%, hsla(47,84%,67%,1) 0, transparent 40%),  
+    radial-gradient(at 95% 53%, hsla(35,63%,65%,1) 0, transparent 53%),  
+    radial-gradient(at 68% 88%, hsla(284,90%,65%,1) 0, transparent 56%),  
+    radial-gradient(at 58% 0%, hsla(90,69%,79%,1) 0, transparent 41%),  
+    radial-gradient(at 57% 77%, hsla(255,89%,64%,1) 0, transparent 49%);
+}
 .theme-one .col-1 h3 { color: var(--indigo-700) }
 .theme-one a.btn-primary:link { color: var(--black-000) }
 .theme-one a.btn-primary:visited { color: var(--black-000) }
