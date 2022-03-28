@@ -120,66 +120,51 @@
           <table class="data-table table-theme-light" id="myTable">
             <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Action</th>
+                    <th>Temperature</th>
+                    <th>Humidity</th>
                 </tr>
             </thead>
 
-          <tbody id= "studentData"></tbody>
+          <tbody id= "weatherData"></tbody>
 
           </table>
 
-          <p><button class="add-row" id="btn_populate" onclick="populateTable()">Populate Table <i class="fa-solid fa-circle-plus"></i></button></p>
+          <p><button class="add-row" id="btn_weather" onclick="fetchWeather()">Fetch Weather</button></p>
 
         </div>
 
     </main>
     <script>
-    let all_btns = document.querySelectorAll('#myTable .btn');
+    async function fetchWeather() { 
 
-    all_btns.forEach(el => el.addEventListener('click', event => {
-        event.preventDefault();
-        // get button id
-        btn_id = event.currentTarget.id;
-        deleteRow(btn_id);
-    }));
+    await fetch('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=bc425ac2188d406c884f4fdd88b339f0')
+        .then(response => {
 
-
-    function deleteRow(btn_id) {
-        console.log(btn_id);
-        console.log("Clicked button: "+btn_id);
-        const rows = document.querySelectorAll("#myTable tr");
-        for (let i = rows.length; i--;) {
-            if(rows[i].innerHTML.includes(btn_id)) {
-                rows[i].parentNode.removeChild(rows[i]);
+            if (response.status !== 200) {
+                console.log('Error Status Code: ' + response.status);
+                return;
             }
-        }
+
+            response.json().then((data) => {
+                let tableWeather ="";
+                tableWeather += "<tr>";
+                    tableWeather += "<td><i>" + data.main.temp + "</i></td>" 
+                    + "<td valign=\"top\">" + data.main.humidity + "</td>"
+
+                    tableWeather += "</tr>";
+                
+                document.getElementById("weatherData").innerHTML = tableWeather;
+                document.getElementById("btn_weather").innerHTML = "Update Weather";
+            });
+        })
+
+        .catch(error => {
+            // handle any error
+        });
+
     }
 
-    const arrStudentData = [
-        {id: "1224", firstname: "John", lastname: "Smith"},
-        {id: "5678", firstname: "Jane", lastname: "Higgins"},
-        {id: "1717", firstname: "Frank", lastname: "Jones"},
-        {id: "2121", firstname: "Mary", lastname: "Dwyer"}
-    ];
-
-    function populateTable(){
-        var tableContent = "";
-        let delBtn = "<a class=\"btn\" onclick=\"deleteRow(this)\"><i class=\"fa-solidfa-trash-can\"></i>Delete</a>";
-        for(var i in arrStudentData){
-            tableContent += "<tr>";
-            tableContent += "<td>" + arrStudentData[i].id +"</td>" 
-                + "<td>" + arrStudentData[i].firstname +"</td>" 
-                + "<td>" + arrStudentData[i].lastname +"</td>" 
-                + "<td><a class=\"btn\" onclick=\"deleteRow("+arrStudentData[i].id+")\"><i class=\"fa-solid fa-trash-can\"></i>Delete</a></td>";
-                tableContent += "</tr>";
-
-            }
-            document.getElementById("studentData").innerHTML = tableContent;
-            document.getElementById("btn_populate").innerHTML = "Refresh Table <i class=\"fa-solid fa-circle-plus\"></i>";
-	}
+    // fetchWithServerCheck();
 
 
 </script>

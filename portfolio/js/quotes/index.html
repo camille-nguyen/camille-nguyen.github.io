@@ -4,38 +4,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Random Quotes Generator Project | Mary Smith | Front-end Developer | </title>
+    <title>JavaScript Random Quotes Generator Project | Camille Nguyen | Front-end Developer | </title>
     <meta name="description" content="Uses the Fetch API to retrieve a randomly-choosen selection of ten inspiring quotations.">
 
 	<!-- Stylesheets -->
     <link rel="stylesheet" href="../../../assets/css/lunadoge.css" />
     <link rel="stylesheet" href="../../../assets/css/css-javascript.css" />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Quotes font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,200&display=swap" rel="stylesheet">
+
+
     <style>
 
+        body { font-family: 'Titillium Web', sans-serif; }
+        
+        /* Nav bar */
+        .container-menu {
+            background: #3d0a91 url("../../../assets/img/wave.png");
+            border-radius: 35px;
+            margin: 30px;
+            box-shadow: 10px 10px 2px -2px rgba(0,0,0,.2);
+            color: white;
+        }
+        .container-menu a#btn-cta:visited { border-color: white}
+
         /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: var(--gray-200) }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+        header.hero-block-js { background-color: #3d0a91 }
+        header.hero-block-js h1 { color: #dc3545 }
+        header.hero-block-js h2 { color: white }
 
         /* Main Colours */
         .theme-js { 
-            background-color: #fff;
-            /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); */
+            background-color: #3d0a91
         }
 
-        .theme-js .col-2 { background-color: var(--gray-200) }
+        .theme-js .col-2 { background-color: var(--gray-200) ; border-radius: 25px;}
         .theme-js h3 { color: #222 }
         .theme-js p { color: #222 }
 
         /* Button Colours: passive state */
-        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s }
+        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s ; border-radius: 25px }
 
         /* Button Colours: active state */
         .theme-js a.btn:hover { background-color: darkblue }
 
-        /* .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } */
-        /* .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } */
+        .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } 
+        .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } 
+
+        /* Footer */
+        footer ul.footer-icons li a:focus i, 
+        footer ul.footer-icons li a:hover i, 
+        footer ul.footer-icons li a:active i { color: var(--gray-500)}
+
+        footer { background-color: #3d0a91; color: white}
+
+
+
+
+
+
+        /* QUOTES CSS STYLE */
+        .container-flex.theme-js body, section { background-color: #E5E3C9 ; font-family: "Source Sans Pro";}
+
+        .container-flex.theme-js.btn-solid { 
+            margin-top: 20px;
+            padding: 14px 20px;
+            display: inline-block;
+            font-size: 18px;
+            background-color: #05595B;
+            color: #fff;
+            border-color: #05595B;
+            border-radius: 12px;
+        }
+
+        .btn-solid:hover { 
+            background-color: #062C30;
+            border-color: #062C30;
+            color: #fff
+        }
+
+        .btn-solid i {
+            margin-right: 12px;
+        }
+
+        .col-3 {
+            border: 1px solid;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .col-3 p {
+            font-family: 'Raleway', 'serif';
+        }
 
     </style>
 
@@ -75,6 +147,46 @@
     <main>
         
         <section class="container-flex theme-js" id="conta">
+            
+            <section class="container-flex text-center" style="padding-bottom: 0">
+                <div class="col-1 text-center">
+                    <h2>Inspiring Quotations</h2>
+                    <h3>Click the button below to be inspired by nine uplifting quotations from wise men and women through the ages.</h3>
+        
+                    <a class="btn btn-solid" id="btn-quotes"><i class="fa-solid fa-comment"></i>View Quotes</a>
+                </div>
+        
+            </section>
+        
+            <!-- This section will be updated by JavaScript -->
+            <section class="container-flex text-center" id="quotes-box">
+        
+                    <div class="col-3">
+        
+                        <p>Text of quotation here 1.</p>
+        
+                        <h3>Author 1</h3>
+        
+                    </div>
+        
+                    <div class="col-3">
+                        
+                        <p>Text of quotation here 2.</p>
+        
+                        <h3>Author 2</h3>
+        
+                    </div>
+        
+                    <div class="col-3">
+        
+                        <p>Text of quotation here 3.</p>
+        
+                        <h3>Author 3</h3>
+        
+                    </div>
+        
+        
+            </section><!-- end of section updated by JavaScript-->
 
 
         </section>
@@ -82,29 +194,74 @@
     </main>
 
     <script>
+        document.querySelector("#btn-quotes").addEventListener("click", fetchRandomNumQuotes);
+
+async function fetchRandomNumQuotes(num) { 
+        await fetch('https://type.fit/api/quotes')
+
+            .then(response => {
+                if (response.status !== 200) {
+                    console.log('Error Status Code: ' + response.status);
+                    return;
+                }
+                response.json().then((data) => {
+                    const lowerNum = getRandomInt(0, data.length-10);
+                    const upperNum = lowerNum + 8; 
+                    let html_block = "";
+                    for (i= lowerNum; i <= upperNum; i++) { 
+                        // Verify if the author value is null
+                        if (data[i].author == "null") {
+                            upperNum += 1;
+                            i++;
+                        }
+                        else{
+                            //console.log(`${[i]}: ${data[i].text} Source: ${data[i].author}`);
+                            html_block = html_block + `<div class="col-3"><p><i>&#8220;${data[i].text}&#8221</i></p><h3>${data[i].author}</h3></div>`
+                            document.getElementById("quotes-box").innerHTML = html_block;
+                        }
+                        
+                    }
+                });
+
+            })
+
+            .catch(error => {
+                // handle any error
+            });
+
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); 
+    }
 
     </script>
 
     
-    <!-- footer -->
+	<!-- footer -->
 	<footer>
 
-		<h2>Your Name Here</h2>
+		<h2>Camille Nguyen</h2>
 
 		<h3>Excellence in digital creation</h3>
 
 		<ul class="footer-links">
-			<li><a href="../../../index.html">Home</a></li>
-			<li><a href="../../../portfolio/index.html">Portfolio</a></li>
-			<li><a href="../../../contact/index.html">Contact</a></li>
+			<li><a href="../../index.html">Home</a></li>
+			<li><a href="../../portfolio/index.html">Portfolio</a></li>
+			<li><a href="../../contact/index.html">Contact</a></li>
 		</ul>
 
 		<ul class="footer-icons">
-			<li><a href="https://www.linkedin.com/nnnnnnnnnnn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/nnnnnnnnnn" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://www.facebook.com/Kisuj1/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+			<li><a href="https://github.com/camille-nguyen/camille-nguyen.github.io" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="https://twitter.com/camsngn" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+			<li><a href="https://www.instagram.com/camsngn/" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
 		</ul>
 
-		<p class="index.html"> <a href="../../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
+		<p class="index.html"> <a href="../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
        
     </footer>
 

@@ -4,40 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Image Slider Project | Mary Smith | Front-end Developer | </title>
+    <title>JavaScript Image Slider Project | Camille Nguyen | Front-end Developer | </title>
     <meta name="description" content="A sample collection of my recent JavaScript projects.">
 
 	<!-- Stylesheets -->
     <link rel="stylesheet" href="../../../assets/css/lunadoge.css" />
     <link rel="stylesheet" href="../../../assets/css/css-javascript.css" />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
     <style>
+        body { font-family: 'Titillium Web', sans-serif; }
+
+        /* Nav bar */
+        .container-menu {
+            background: #3d0a91 url("../../../assets/img/wave.png");
+            border-radius: 35px;
+            margin: 30px;
+            box-shadow: 10px 10px 2px -2px rgba(0,0,0,.2);
+            color: white;
+        }
+        .container-menu a#btn-cta:visited { border-color: white}
 
         /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: var(--gray-200) }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+        header.hero-block-js { background-color: #3d0a91 }
+        header.hero-block-js h1 { color: #dc3545 }
+        header.hero-block-js h2 { color: white }
 
         /* Main Colours */
         .theme-js { 
-            background-color: #fff;
-            /* background-image: linear-gradient(147deg, #000000 0%, #04619f 74%); */
+            background-color: #3d0a91
         }
 
-        .theme-js .col-2 { background-color: var(--gray-200) }
+        .theme-js .col-2 { background-color: var(--gray-200) ; border-radius: 25px;}
         .theme-js h3 { color: #222 }
         .theme-js p { color: #222 }
 
         /* Button Colours: passive state */
-        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s }
+        .theme-js a.btn { color: #fff; background-color: blue; transition: 0.2s ; border-radius: 25px }
 
         /* Button Colours: active state */
         .theme-js a.btn:hover { background-color: darkblue }
 
-        /* .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } */
-        /* .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } */
+        .theme-js a.btn { background-image: linear-gradient(to right,#e052a0,#f15c41) } 
+        .theme-js a.btn:hover { filter: brightness(160%) saturate(140%) } 
 
-        .container-slider { width: 100%; padding: 0 15px; margin: 0 auto }
+        /* Footer */
+        footer ul.footer-icons li a:focus i, 
+        footer ul.footer-icons li a:hover i, 
+        footer ul.footer-icons li a:active i { color: var(--gray-500)}
+
+        footer { background-color: #3d0a91; color: white}
+
+
+
+        .container-slider { width: 100%; padding: 0 15px; margin: 0 auto}
 
         .container-outer { 
             max-width: 1140px;
@@ -54,7 +78,7 @@
             /* background-attachment: fixed; */
             background-position: center; 
             background-size: contain; 
-            border: 12px solid blue;
+            border: 12px solid white;
             border-radius: 15px;
             position: relative;
             margin: 0 auto;
@@ -133,6 +157,43 @@
     </main>
 
     <script>
+        (function() {
+            const pictures = [
+	            "dublin-0",
+	            "dublin-1",
+	            "dublin-2",
+	            "dublin-3",
+	            "dublin-4",
+	            "dublin-5"
+	        ];
+
+            // Select both left and right button. Add event listeners
+	        const buttons = document.querySelectorAll('.btn')
+	        const imageDIV = document.querySelector('.container-img')
+	        let counter = 0
+
+            buttons.forEach(function(button){
+	            button.addEventListener('click', function(e){
+                    if (button.classList.contains('btn-left')) {
+	                    counter--;
+	                    if (counter < 0) {
+	                    counter = pictures.length - 1;
+	                    }
+	                    imageDIV.style.backgroundImage = `url('assets/img/${pictures[counter]}.jpg')`
+	                    console.log(imageDIV.style.backgroundImage = `url('assets/img/${pictures[counter]}.jpg')`)
+	                }
+
+                    if (button.classList.contains('btn-right')) {
+                        counter++;
+                        if(counter > pictures.length - 1) {
+                            counter = 0;
+                        }
+                        imageDIV.style.backgroundImage = `url('assets/img/${pictures[counter]}.jpg')`
+                        console.log(imageDIV.style.backgroundImage = `url('assets/img/${pictures[counter]}.jpg')`)
+	                }
+                })
+            })
+        })();
 
     </script>
 
@@ -140,22 +201,25 @@
     <!-- footer -->
 	<footer>
 
-		<h2>Your Name Here</h2>
+		<h2>Camille Nguyen</h2>
 
 		<h3>Excellence in digital creation</h3>
 
 		<ul class="footer-links">
-			<li><a href="../../../index.html">Home</a></li>
-			<li><a href="../../../portfolio/index.html">Portfolio</a></li>
-			<li><a href="../../../contact/index.html">Contact</a></li>
+			<li><a href="../../index.html">Home</a></li>
+			<li><a href="../../portfolio/index.html">Portfolio</a></li>
+			<li><a href="../../contact/index.html">Contact</a></li>
 		</ul>
 
 		<ul class="footer-icons">
-			<li><a href="https://www.linkedin.com/nnnnnnnnnnn" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/nnnnnnnnnn" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://www.facebook.com/Kisuj1/" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+			<li><a href="https://github.com/camille-nguyen/camille-nguyen.github.io" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="https://twitter.com/camsngn" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+			<li><a href="https://www.instagram.com/camsngn/" target="_blank"><i class="fab fa-instagram-square"></i></a></li>
 		</ul>
 
-		<p class="index.html"> <a href="../../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
+		<p class="index.html"> <a href="../../privacy.html" style="color: #fff; background-color:transparent;">Privacy &amp; Legal</a> </p>
        
     </footer>
 
