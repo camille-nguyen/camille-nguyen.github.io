@@ -11,11 +11,6 @@
     <link rel="stylesheet" href="../../../assets/css/lunadoge.css" />
     <link rel="stylesheet" href="../../../assets/css/css-javascript.css" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
     <style>
 
         body { font-family: 'Titillium Web', sans-serif; }
@@ -31,7 +26,7 @@
         .container-menu a#btn-cta:visited { border-color: white}
 
         /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: #3d0a91 ; padding-top: 170px;}
+        header.hero-block-js { background-color: #3d0a91 }
         header.hero-block-js h1 { color: #dc3545 }
         header.hero-block-js h2 { color: white }
 
@@ -58,61 +53,107 @@
         footer ul.footer-icons li a:hover i, 
         footer ul.footer-icons li a:active i { color: var(--gray-500)}
 
-        footer { background-color: #3d0a91; color: white}
+        footer { background-color: #3d0a91; color: white} 
 
-        * { margin: 0; padding: 0;  box-sizing: border-box }
-        body { display: flex; flex-direction: column; flex-wrap: wrap }
-        header{
+
+
+
+        /* ========= ENDS CUSTOM CSS FOR WEB PAGE ======= */
+
+        #search-bar {
             width: 100%;
-            height: 50px;
             background: rgb(38, 39, 38);
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             border-bottom: 1px solid #ccc;
+            text-align: center;
+            padding: 20px 0;
         }
-        header h1{
+
+        #search-bar h1 {
             margin: 0 20px;
             color: #fff;
         }
-        header a {
+
+        #search-bar a {
             text-decoration: none;
         }
-        header form{
+
+        #search-bar form {
             display: flex;
             align-items: center;
         }
-        #search{
+
+        #search {
             width: 230px;
-            height: 30px;
             border: 1px solid black;
             outline: none;
             border-radius: 20px;
             padding-left: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
         }
-        main{
+
+        main {
+            display: flex; 
+            flex-direction: row; flex-wrap: wrap;
             width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
         }
-        main div{
-            width: 250px;
-            height: 320px;
+
+        /* Desktops/Laptops */
+        @media (min-width: 1200px) { 
+            main { 
+                padding: 3.5% calc((100% - 1140px)/2) 5% calc((100% - 1140px)/2); 
+                margin: 0 auto;
+            } 
+        }
+
+        /* Tablets and smaller desktops */
+        @media (min-width: 1025px) and (max-width: 1199px ) { 
+            main { padding: 3% 14% 3% 14% } 
+        }
+
+        /* Tablets */
+        @media (min-width: 768px) and (max-width: 1024px) { 
+            main { padding: 4% 5% 4% 5% }
+        }
+
+        /* Larger mobiles */
+        @media (min-width: 400px) and (max-width: 767px)  { 
+            main { padding: 7% 13% 8% 13% }
+        }
+
+        /* Smaller mobiles */
+        @media (max-width: 399px) { 
+            main { padding: 7% 10% 8% 10% } 
+        }
+
+        main > div {
             margin: 19px 15px;
             background: red;
+        }   
+
+        @media (min-width: 768px) {
+            main > div { width: 22% }
         }
-        img{
+
+        @media (max-width: 767px) {
+            main > div { width: 100%; margin: 20px 0 }
+        }
+
+        main img {
             width: 100%;
             height: 89%;
             object-fit: cover;
         }
-        h2{
-            font-size: 20px;
-            font-family: sans-serif;
-            font-weight: bold;
+        main h2 {
+            font-size: 18px;
+            font-weight: 600;
             text-align: center;
             color: #fff;
+            padding: 12px;
         }
 
     </style>
@@ -139,7 +180,6 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-
     </nav>
         
     <!-- header hero block -->
@@ -150,69 +190,69 @@
         </div>
     </header>
 
+    <div id="search-bar">
+        <a href="#"><h1>Movies</h1></a>
+        <form id="form">
+            <input
+                type="text"
+                id="search"
+                placeholder="Search"
+                class="search"
+            />
+        </form>
+    </div>
+
     <!-- main content with sections -->
-    <main>
+    <main id="main">
         
-        <header>
-            <a href="#"><h1>Movies</h1></a>
-            <form id="form">
-                <input
-                    type="text"
-                    id="search"
-                    placeholder="Search"
-                    class="search"
-                />
-            </form>
-        </header>
-    
-        <main id="main"></main>
 
     </main>
 
     <script>
-        // The JavaScript code is here:
-        // https://codepen.io/MehdiAoussiad/pen/rNeZKGa
-
         const apiUrl = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
-        const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-        const SEARCHAPI =
-            "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
+	const IMGPATH = "https://image.tmdb.org/t/p/w1280";
+	const SEARCHAPI =
+		"https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
-        const main = document.getElementById("main");
-        const form = document.getElementById("form");
-        const search = document.getElementById("search");
+	const main = document.getElementById("main");
+	const form = document.getElementById("form");
+	const search = document.getElementById("search");
 
-        showMovies(apiUrl);
-        function showMovies(url){
-            fetch(url).then(res => res.json())
-            .then(function(data){
-            console.log(data.results);
-            data.results.forEach(element => {
-                const el = document.createElement('div');
-                const image = document.createElement('img');
-                const text = document.createElement('h2');
+	showMovies(apiUrl);
 
-                text.innerHTML = `${element.title}`;
-                image.src = IMGPATH + element.poster_path;
-                el.appendChild(image);
-                el.appendChild(text);
-                main.appendChild(el);
-            }); 
-        });
-        }
+	function showMovies(url){
+		fetch(url).then(res => res.json())
+			.then(function(data){
+			data.results.forEach(element => {
+				const el = document.createElement('div');
+				const image = document.createElement('img');
+				const text = document.createElement('h2');
+				text.innerHTML = truncateString(`${element.title}`, 20);
+				image.src = IMGPATH + element.poster_path;
+				el.appendChild(image);
+				el.appendChild(text);
+				main.appendChild(el);
+			}); 
+		});
+	}
 
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		main.innerHTML = '';
+		const searchTerm = search.value;
+		if (searchTerm) {
+			showMovies(SEARCHAPI + searchTerm);
+			search.value = "";
+		}
+	});
 
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            main.innerHTML = '';
-            
-            const searchTerm = search.value;
+	function truncateString(str, num) {
+		if (str.length <= num) {
+			return str
+		}
+		return str.slice(0, num) + '...'
+	}
 
-            if (searchTerm) {
-                showMovies(SEARCHAPI + searchTerm);
-                search.value = "";
-            }
-        });
     </script>
 
     
@@ -246,9 +286,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
