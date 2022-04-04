@@ -41,7 +41,12 @@
             radial-gradient(at 45% 37%, hsla(170,99%,78%,1) 0, transparent 51%);
         }
 
-        .theme-js .col-2 { background-color: var(--gray-200) ; border-radius: 25px;}
+        .theme-js .col-4 { 
+            background-color: var(--gray-200) ; 
+            border-radius: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
         .theme-js h3 { color: #222 }
         .theme-js p { color: #222 }
 
@@ -106,7 +111,7 @@
         
         <section class="container-flex theme-js">
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Data Tables</h3>
                 
@@ -117,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Weather for Dublin</h3>
                 
@@ -128,7 +133,18 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
+                
+                <h3>Calculator with Modules</h3>
+                
+                <p>A basic calculator that uses export/import statements to share code with a JavaScript module file.</p>
+                
+                <div class="container-btn">
+                    <a href="calculator-modules/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-4">
                 
                 <h3>Movies Listing</h3>
                 
@@ -139,7 +155,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Random Quotes Generator</h3>
                 
@@ -150,7 +166,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Image Blue Filter</h3>
                 
@@ -161,7 +177,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Counter</h3>
                 
@@ -172,7 +188,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Tip Calculator</h3>
                 
@@ -183,7 +199,7 @@
                 </div>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Image Slideshow</h3>
                 
@@ -195,7 +211,7 @@
             </div>
 
 
-            <div class="col-2">
+            <div class="col-4">
                 
                 <h3>Random Colour Generator</h3>
                 
@@ -204,6 +220,14 @@
                 <div class="container-btn">
                     <a href="colours/index.html" class="btn btn-primary"><span>View project</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
+            </div>
+
+            <div class="col-4" style="background-color: transparent;">
+                <p>&nbsp;</p>
+            </div>
+
+            <div class="col-4" style="background-color: transparent;">
+                <p>&nbsp;</p>
             </div>
 
         </section>
@@ -237,7 +261,6 @@
     </footer>
 
     <script src="../../assets/js/menu.js"></script>
-
 
 </body>
 </html>
