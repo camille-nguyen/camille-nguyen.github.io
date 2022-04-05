@@ -10,26 +10,41 @@
 	<!-- Stylesheets -->
     <link rel="stylesheet" href="../../../assets/css/lunadoge.css" />
     <link rel="stylesheet" href="../../../assets/css/css-javascript.css" />
+
+    
     <style>
+        
+        body { font-family: 'Titillium Web', sans-serif; }
+        
+        /* Nav bar */
+        .container-menu {
+            background: #3d0a91 url("../../../assets/img/wave.png");
+            border-radius: 35px;
+            margin: 30px;
+            box-shadow: 10px 10px 2px -2px rgba(0,0,0,.2);
+            color: white;
+        }
+        .container-menu a#btn-cta:visited { border-color: white}
 
         /* ============ Header Colours =============*/
-        header.hero-block-js { background-color: #f7df1e }
-        header.hero-block-js h1 { color: #222 }
-        header.hero-block-js h2 { color: var(--gray-700) }
+        header.hero-block-js { background-color: #3d0a91 }
+        header.hero-block-js h1 { color: #dc3545 }
+        header.hero-block-js h2 { color: white }
 
         /* Main Colours */
         .theme-js { 
-            background-image:#ff0000; background-image:  
-            radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0, transparent 50%),  
-            radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0, transparent 50%),  
-            radial-gradient(at 0% 50%, hsla(355,85%,93%,1) 0, transparent 50%),  
-            radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0, transparent 50%),  
-            radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0, transparent 50%),  
-            radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0, transparent 50%),  
-            radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0, transparent 50%);
+            background-color: #3d0a91
         }
 
-        .container-flex { position: relative }
+        /* Footer */
+        footer ul.footer-icons li a:focus i, 
+        footer ul.footer-icons li a:hover i, 
+        footer ul.footer-icons li a:active i { color: var(--gray-500)}
+
+        footer { background-color: #3d0a91; color: white}
+
+
+
         /* ========= ENDS CUSTOM CSS FOR WEB PAGE ======= */
 
         .calculator {
@@ -102,8 +117,6 @@
             grid-gap: 20px;
             padding: 20px;
          }
-
-        
     </style>
 
 	<!-- Font Awesome 6.1 icons -->
