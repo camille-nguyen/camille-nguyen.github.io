@@ -1,10 +1,11 @@
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1)
 
-function populatetableRows() {
+async function populatetableRows() {
     await fetch('https://api.openweathermap.org/data/2.5/weather?q=Dublin,ie&units=metric&APPID=bc425ac2188d406c884f4fdd88b339f0')
     
     .then(response => {
         if (response.status !== 200) {
+            console.log('Error Status Code: ' + response.status);
             return;
         }
         response.json().then((data) => {
