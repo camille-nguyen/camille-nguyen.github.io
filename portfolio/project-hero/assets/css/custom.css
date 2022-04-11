@@ -1,0 +1,127 @@
+/* Add custom style here  */
+
+header { margin-bottom: 68px }
+
+#hero-1 header {
+    margin-bottom: 0;
+}
+
+header.hero-block h1 {
+    font-size: calc(60px + (80 - 60) * ((100vw - 320px)/ (1600 - 320)));
+}
+
+#hero-2 h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 10px
+}
+#hero-2 header.hero-block a.btn-primary:link,
+#hero-2 header.hero-block a.btn-primary:visited { background-color: var(--red-500) }
+
+#hero-2 header.hero-block a.btn-primary:link,
+#hero-2 header.hero-block a.btn-primary:visited { border-color: var(--red-500) }
+
+#hero-2 header.hero-block a.btn-secondary:link,
+#hero-2 header.hero-block a.btn-secondary:visited { background-color: var(--red-500) }
+
+#hero-2 header.hero-block a.btn-secondary:link,
+#hero-2 header.hero-block a.btn-secondary:visited { border-color: var(--red-500) }
+
+#hero-3 h1 {
+    font-family: 'Abril Fatface', 'serif';
+    letter-spacing: 3px
+}
+
+
+#hero-4 header.hero-block { background-color: var(--yellow-100) }
+#hero-4 header.hero-block a.btn-primary:link,
+#hero-4 header.hero-block a.btn-primary:visited { color: var(--white-000) }
+
+#hero-4 header.hero-block h1 { color: var(--black-000) ; font-family: 'Prata', sans-serif;}
+#hero-4 header.hero-block h2 { color: var(--black-000) }
+#hero-4 header.hero-block a.btn-secondary:link,
+#hero-4 header.hero-block a.btn-secondary:visited { color: var(--black-000) }
+
+#hero-4 header.hero-block a.btn-secondary:link,
+#hero-4 header.hero-block a.btn-secondary:visited { border-color: var(--black-000) }
+
+
+#hero-5 header.hero-block { background-color: var(--black-000) }
+#hero-5 header.hero-block a.btn-secondary:link,
+#hero-5 header.hero-block a.btn-secondary:visited { background-color: var(--teal-400) }
+
+#hero-5 header.hero-block a.btn-secondary:link,
+#hero-5 header.hero-block a.btn-secondary:visited { border-color: var(--teal-400) }
+
+#hero-5 header.hero-block a.btn-secondary:link,
+#hero-5 header.hero-block a.btn-secondary:visited { color: var(--black-000) }
+
+#hero-5 header.hero-block a.btn-primary:link,
+#hero-5 header.hero-block a.btn-primary:visited { border-color: var(--white-000) }
+
+#hero-5 header.hero-block h1 { color: var(--teal-400); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 4px;}
+#hero-5 header.hero-block h2 { font-family: 'Zilla Slab', sans-serif; letter-spacing: 1px}
+
+#hero-5 .hero-block .upper-label { 
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
+    text-decoration-color: #64f4ac;
+    text-decoration-style: wavy;
+}
+
+
+#hero-6 header.hero-block { background-color: var(--ontrend-300) }
+#hero-6 header.hero-block h1 { color: var(--black-000); font-family: 'Playfair Display', sans-serif}
+#hero-6 header.hero-block h2 { color: var(--black-000); font-family: 'Playfair Display', sans-serif}
+#hero-6 header.hero-block a.btn-primary:link,
+#hero-6 header.hero-block a.btn-primary:visited { background-color: var(--red-500) }
+
+#hero-6 header.hero-block a.btn-primary:link,
+#hero-6 header.hero-block a.btn-primary:visited { color: var(--white-000) }
+
+#hero-6 header.hero-block a.btn-primary:link,
+#hero-6 header.hero-block a.btn-primary:visited { border-color: var(--red-500) }
+
+#hero-6 header.hero-block a.btn-secondary:link,
+#hero-6 header.hero-block a.btn-secondary:visited { border-color: var(--red-500) }
+
+#hero-6 header.hero-block a.btn-secondary:link,
+#hero-6 header.hero-block a.btn-secondary:visited { color: var(--red-500) }
+
+#hero-6 .upper-label span {
+    letter-spacing: 0;
+    background-color: var(--purple-400);
+    color: #fff;
+    display: inline-block;
+    padding: 4px 18px 6px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+
+}
+
+
+#hero-7 header.hero-block { background-color: var(--ontrend-700) }
+#hero-7 header.hero-block h1 { font-family: 'Inter', sans-serif }
+#hero-7 header.hero-block h2 { color: var(--blue-100); font-family: 'Inter', sans-serif }
+#hero-7 header.hero-block a.btn-primary:link,
+#hero-7 header.hero-block a.btn-primary:visited { background-color: var(--blue-400) }
+
+#hero-7 header.hero-block a.btn-primary:link,
+#hero-7 header.hero-block a.btn-primary:visited { border-color: var(--blue-400) }
+
+
+#hero-8 header.hero-block { background-color: var(--white-000) }
+#hero-8 header.hero-block h1 { color: var(--black-000) }
+#hero-8 header.hero-block h1 span { color: var(--teal-500) }
+#hero-8 header.hero-block h2 { color: var(--black-000) }
+
+#hero-8 header.hero-block h1 , #hero-8 header.hero-block h1 { font-family: 'Outfit', sans-serif;}
+
+#hero-8 header.hero-block a.btn-primary:link,
+#hero-8 header.hero-block a.btn-primary:visited { background-color: var(--white-000) }
+
+#hero-8 header.hero-block a.btn-primary:link,
+#hero-8 header.hero-block a.btn-primary:visited { color: var(--teal-500) }
+
+#hero-8 header.hero-block a.btn-primary:link,
+#hero-8 header.hero-block a.btn-primary:visited { border-color: var(--teal-500) }
