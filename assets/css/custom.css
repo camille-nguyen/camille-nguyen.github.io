@@ -1,4 +1,4 @@
-/* ============ GLOBAL CUSTOM PROPERTIES ============  */
+/* ============ This CSS file is for the ROOT html page. ============  */
 
 :root {
     /* Nicer than default sans-serif font */
@@ -199,31 +199,29 @@ header.hero-block a.btn-primary:active { border-color: var(--indigo-700) }
     radial-gradient(at 57% 77%, hsla(255,89%,64%,1) 0, transparent 49%);
 }
 .theme-one .col-1 h3 { color: var(--indigo-700) }
-.theme-one a.btn-primary { border-radius: 50px }
+
+
+/* "View project" buttons */
+
+.theme-one a.btn-primary { 
+    border-radius: 50px;
+    color: var(--purple-900);
+    border-color: transparent;
+}
 .theme-one a.btn-primary:link { 
-    color: var(--black-000);
     background-color: var(--red-400);
-    border-color: var(--red-400);
 }
 .theme-one a.btn-primary:visited { 
-    color: var(--black-000);
     background-color: var(--red-400);
-    border-color: var(--red-400)
 }
 .theme-one a.btn-primary:focus { 
-    color: var(--black-000);
     background-color: var(--red-500);
-    border-color: var(--red-500)
 }
 .theme-one a.btn-primary:hover { 
-    color: var(--black-000);
     background-color: var(--red-500);
-    border-color: var(--red-500) 
 }
 .theme-one a.btn-primary:active { 
-    color: var(--black-000);
     background-color: var(--red-500);
-    border-color: var(--red-500) 
  }
 .theme-one .upper-label { color: var(--indigo-700) }
 .theme-one .col-1 h2 { color: var(--black-000) }
