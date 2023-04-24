@@ -167,6 +167,23 @@ header.hero-block a.btn-primary:hover,
 header.hero-block a.btn-primary:active { border-color: var(--indigo-700) }
 
 
+/* FLOATING ANIMATION (for JavaScript projects) */
+.floating { 
+    filter: contrast(120%);
+    filter: drop-shadow(10px 10px 10px purple);
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
 
 
 .theme-one { 
@@ -182,21 +199,32 @@ header.hero-block a.btn-primary:active { border-color: var(--indigo-700) }
     radial-gradient(at 57% 77%, hsla(255,89%,64%,1) 0, transparent 49%);
 }
 .theme-one .col-1 h3 { color: var(--indigo-700) }
-.theme-one a.btn-primary:link { color: var(--black-000) }
-.theme-one a.btn-primary:visited { color: var(--black-000) }
-.theme-one a.btn-primary:focus { color: var(--black-000) }
-.theme-one a.btn-primary:hover { color: var(--black-000) }
-.theme-one a.btn-primary:active { color: var(--black-000) }
-.theme-one a.btn-primary:link { background-color: var(--red-400) }
-.theme-one a.btn-primary:visited { background-color: var(--red-400) }
-.theme-one a.btn-primary:focus { background-color: var(--red-500) }
-.theme-one a.btn-primary:hover { background-color: var(--red-500) }
-.theme-one a.btn-primary:active { background-color: var(--red-500) }
-.theme-one a.btn-primary:link { border-color: var(--red-400) }
-.theme-one a.btn-primary:visited { border-color: var(--red-400) }
-.theme-one a.btn-primary:focus { border-color: var(--red-500) }
-.theme-one a.btn-primary:hover { border-color: var(--red-500) }
-.theme-one a.btn-primary:active { border-color: var(--red-500) }
+.theme-one a.btn-primary { border-radius: 50px }
+.theme-one a.btn-primary:link { 
+    color: var(--black-000);
+    background-color: var(--red-400);
+    border-color: var(--red-400);
+}
+.theme-one a.btn-primary:visited { 
+    color: var(--black-000);
+    background-color: var(--red-400);
+    border-color: var(--red-400)
+}
+.theme-one a.btn-primary:focus { 
+    color: var(--black-000);
+    background-color: var(--red-500);
+    border-color: var(--red-500)
+}
+.theme-one a.btn-primary:hover { 
+    color: var(--black-000);
+    background-color: var(--red-500);
+    border-color: var(--red-500) 
+}
+.theme-one a.btn-primary:active { 
+    color: var(--black-000);
+    background-color: var(--red-500);
+    border-color: var(--red-500) 
+ }
 .theme-one .upper-label { color: var(--indigo-700) }
 .theme-one .col-1 h2 { color: var(--black-000) }
 .theme-one .col-3 h3 { color: var(--black-000) }
