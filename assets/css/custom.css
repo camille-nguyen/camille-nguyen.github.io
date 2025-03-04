@@ -266,3 +266,9 @@ footer { background-color: var(--indigo-700)}
 .container-menu.menu-desktop { background-color: var(--indigo-700) }
 .container-menu.menu-mobile { background-color: var(--indigo-700) }
 .container-menu.menu-mobile ul.mobile-display { background-color: var(--indigo-700) }
+/* hide the nav bar in phone view */
+@media (max-width: 700px) {
+    .container-menu {
+      display: none
+    }
+  }
