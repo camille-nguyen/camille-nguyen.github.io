@@ -220,22 +220,32 @@
     nextQBtn.disabled = true;
 
     // Wait for any key to move on
-    function handleNextQuestionKey() {
-      window.removeEventListener('keydown', handleNextQuestionKey);
+    function handleContinue() {
+      // Remove listeners
+      window.removeEventListener('keydown', handleContinue);
+      feedback.removeEventListener('click', handleContinue);
+      feedback.removeEventListener('touchstart', handleContinue);
 
+      // Re-enable controls
       selectBtn.disabled = false;
       rejectBtn.disabled = false;
       nextQBtn.disabled = false;
 
+      // Next question
       currentQ++;
       updateProgress();
       showQuestionAt(currentQ);
       updateNextButton();
     }
 
-    window.addEventListener('keydown', handleNextQuestionKey);
+    window.addEventListener('keydown', handleContinue);
+    
+    // Mobile + desktop: tap feedback area
+    feedback.addEventListener('click', handleContinue);
+    feedback.addEventListener('touchstart', handleContinue);
 
   }
+  
 
   function updateProgress() {
     const pct = Math.round((currentQ / questions.length) * 100);
