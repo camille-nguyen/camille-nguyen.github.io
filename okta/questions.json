@@ -200,7 +200,7 @@
     ]
   },
   {
-    "stem": "An end user is experiencing an issue with the Okta Browser plugin.\nIs this the first step an administrator should take to troublesoot the issue?",
+    "stem": "An end user is experiencing an issue with the Okta Browser plugin.\nIs this the first step an administrator should take to troubleshoot the issue?",
     "options": [
       {"text": "Review the dashboard in the Okta Administrator application",  "correct": false},
       {"text": "Verify the Okta Browser plugin is enabled",  "correct": true},

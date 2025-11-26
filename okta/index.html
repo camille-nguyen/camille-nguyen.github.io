@@ -61,6 +61,7 @@
         <button id="selectBtn" class="select" title="Select this option (S)">Select</button>
         <button id="rejectBtn" class="reject" title="Reject this option (R)">Reject</button>
         <button id="nextQBtn" class="next" title="Skip to next question">Skip question</button>
+        <button id="continueBtn" class="next" style="display:none;">Continue</button>
       </div>
 
       <div class="progress" aria-hidden="true">
@@ -106,6 +107,7 @@
   const selectBtn = document.getElementById('selectBtn');
   const rejectBtn = document.getElementById('rejectBtn');
   const nextQBtn = document.getElementById('nextQBtn');
+  const continueBtn = document.getElementById('continueBtn');
   const bar = document.getElementById('progressBar');
   const feedback = document.getElementById('feedback');
   const resultsEl = document.getElementById('results');
@@ -244,12 +246,17 @@
     rejectBtn.disabled = true;
     nextQBtn.disabled = true;
 
-    // Wait for any key to move on
-    function handleContinue() {
-      // Remove listeners
+    // Show Continue button
+    continueBtn.style.display = "inline-block";
+    continueBtn.disabled = false;
+
+    // Unified continuation function
+    function continueToNext() {
       window.removeEventListener('keydown', handleContinue);
-      feedback.removeEventListener('click', handleContinue);
-      feedback.removeEventListener('touchstart', handleContinue);
+      continueBtn.removeEventListener('click', continueToNext);
+
+      // Hide Continue button for next question
+      continueBtn.style.display = "none";
 
       // Re-enable controls
       selectBtn.disabled = false;
@@ -263,11 +270,14 @@
       updateNextButton();
     }
 
+    // Key handler
+    function handleContinue() {
+      continueToNext();
+    }
+
+    // Allow: key press OR clicking Continue
     window.addEventListener('keydown', handleContinue);
-    
-    // Mobile + desktop: tap feedback area
-    feedback.addEventListener('click', handleContinue);
-    feedback.addEventListener('touchstart', handleContinue);
+    continueBtn.addEventListener('click', continueToNext);
 
   }
   
