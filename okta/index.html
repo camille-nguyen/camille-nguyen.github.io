@@ -210,15 +210,18 @@
 
     // Show feedback
     feedback.innerHTML = r.correct
-      ? '<strong>Correct!</strong> You selected all correct options.'
+      ? '<strong>Correct!</strong> You selected all correct options. <i>Press any key to continue.</i>'
       : `<strong>Incorrect.</strong> Correct options: "${q.options.filter(o=>o.correct).map(o=>o.text).join('", "')}"`;
 
-    // Disable buttons briefly
+    // Disable buttons
     selectBtn.disabled = true;
     rejectBtn.disabled = true;
     nextQBtn.disabled = true;
 
-    setTimeout(() => {
+    // Wait for any key to move on
+    function handleNextQuestionKey() {
+      window.removeEventListener('keydown', handleNextQuestionKey);
+
       selectBtn.disabled = false;
       rejectBtn.disabled = false;
       nextQBtn.disabled = false;
@@ -227,7 +230,10 @@
       updateProgress();
       showQuestionAt(currentQ);
       updateNextButton();
-    }, 5000);
+    }
+
+    window.addEventListener('keydown', handleNextQuestionKey);
+
   }
 
   function updateProgress() {
