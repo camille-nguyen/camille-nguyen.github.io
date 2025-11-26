@@ -26,6 +26,16 @@
     .summary{margin-top:16px}
     .kbd{display:inline-block;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);font-family:monospace;margin-left:8px}
     @media (max-width:600px){.controls{flex-direction:column}button{width:100%}}
+    #feedback {
+      cursor: pointer;
+    }
+
+    #feedback .continue-hint {
+      font-size: 0.85em;
+      opacity: 0.7;
+      display: block;
+      margin-top: 6px;
+    }
   </style>
 </head>
 <body>
@@ -74,6 +84,12 @@
   </div>
 
   <script>
+  // Preload sounds
+  const correctSound = new Audio('../assets/sounds/correct.mp3');
+  const incorrectSound = new Audio('../assets/sounds/incorrect.mp3');
+  //correctSound.volume = 0.7;
+  incorrectSound.volume = 0.3;  
+
   // State
   let questions = [];
   let qOrder = [];
@@ -213,6 +229,15 @@
     feedback.innerHTML = r.correct
       ? '<strong>Correct!</strong> You selected all correct options. <i>Press any key to continue.</i>'
       : `<strong>Incorrect.</strong> Correct options: "${q.options.filter(o=>o.correct).map(o=>o.text).join('", "')}"`;
+
+    // 🔊 Play sound depending on correctness
+    if (r.correct) {
+      correctSound.currentTime = 0;
+      correctSound.play();
+    } else {
+      incorrectSound.currentTime = 0;
+      incorrectSound.play();
+    }
 
     // Disable buttons
     selectBtn.disabled = true;
