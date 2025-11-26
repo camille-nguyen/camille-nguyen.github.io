@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Okta Professional Exam</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; --bg:#0f172a; --card:#0b1220; --accent:#7dd3fc; --muted:#94a3b8;}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071128 0%,#051226 100%);color:#e6eef8}
+    .container{max-width:900px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    header h1{font-size:1.25rem;margin:0}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:0.9rem}
+    .question{margin-top:12px;font-size:1.15rem}
+    .option-panel{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+    .option-text{font-size:1.05rem}
+    .controls{display:flex;gap:12px;margin-top:14px}
+    button{appearance:none;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    .select{background:linear-gradient(90deg,#10b981,#06b6d4);color:#042027}
+    .reject{background:transparent;border:2px solid rgba(255,255,255,0.06);color:var(--accent)}
+    .next{background:rgba(255,255,255,0.04);color:var(--muted)}
+    .progress{margin-top:12px;height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .bar{height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);width:0%}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+    .summary{margin-top:16px}
+    .kbd{display:inline-block;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);font-family:monospace;margin-left:8px}
+    @media (max-width:600px){.controls{flex-direction:column}button{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Okta Professional Exam</h1>
+      <div class="meta">Question <strong id="qIndex">0</strong>/<span id="qTotal">0</span></div>
+    </header>
+
+    <main class="card">
+      <div class="meta">
+        <div>Mode: <strong>Sequential options (DOMC)</strong></div>
+        <div>Keyboard: <span class="kbd">&lt</span>=Select (true), <span class="kbd">&gt</span>=Reject (false)</div>
+      </div>
+
+      <div class="question" id="stem">Loading question...</div>
+
+      <div class="option-panel" id="optionPanel" aria-live="polite">
+        <div class="option-text" id="optionText">...</div>
+      </div>
+
+      <div class="controls">
+        <button id="selectBtn" class="select" title="Select this option (S)">Select</button>
+        <button id="rejectBtn" class="reject" title="Reject this option (R)">Reject</button>
+        <button id="nextQBtn" class="next" title="Skip to next question">Skip question</button>
+      </div>
+
+      <div class="progress" aria-hidden="true">
+        <div class="bar" id="progressBar"></div>
+      </div>
+
+      <div class="summary" id="feedback"></div>
+
+      <footer>
+        After each option you either <strong>Select</strong> (you think this is correct) or <strong>Reject</strong>.
+        If you select the correct option when it's shown, the question is scored correct. If you select an incorrect option, it's scored incorrect immediately. If you reject all options and never selected any, it's scored incorrect.
+      </footer>
+    </main>
+
+    <section class="card" style="margin-top:18px;">
+      <h3 style="margin:0 0 10px 0">Results</h3>
+      <div id="results">No results yet.</div>
+    </section>
+    <p><a href="./questions.html" target="_blank">Edit the questions</a></p>
+  </div>
+
+  <script>
+  // State
+  let questions = [];
+  let qOrder = [];
+  let currentQ = 0;
+  let currentOptionOrder = [];
+  let currentOptionIndex = 0;
+  let results = []; // {questionId, correct:boolean, selectedOptionId|null, presentedOptions:[]}
+
+  // DOM Elements
+  const qIndexEl = document.getElementById('qIndex');
+  const qTotalEl = document.getElementById('qTotal');
+  const stemEl = document.getElementById('stem');
+  const optionTextEl = document.getElementById('optionText');
+  const selectBtn = document.getElementById('selectBtn');
+  const rejectBtn = document.getElementById('rejectBtn');
+  const nextQBtn = document.getElementById('nextQBtn');
+  const bar = document.getElementById('progressBar');
+  const feedback = document.getElementById('feedback');
+  const resultsEl = document.getElementById('results');
+
+  const allowSkip = true;
+
+  // Load questions from JSON
+  async function loadQuestions() {
+    const response = await fetch('./questions.json');
+    const data = await response.json();
+
+    questions = data.map((q, index) => ({
+      id: `q${index + 1}`,
+      stem: q.stem,
+      options: q.options.map((opt, idx) => ({
+        id: String.fromCharCode(97 + idx),
+        text: opt.text,
+        correct: opt.correct
+      }))
+    }));
+
+    // Generate randomized question order after questions exist
+    qOrder = shuffle(Array.from({ length: questions.length }, (_, i) => i));
+
+    // Update total in UI
+    qTotalEl.textContent = questions.length;
+
+    // Start the exam now that questions are loaded
+    start();
+  }
+
+  // Start exam
+  function start() {
+    attachHandlers();
+    updateNextButton();
+    showQuestionAt(currentQ);
+    updateProgress();
+  }
+
+  function showQuestionAt(index) {
+    if (index >= qOrder.length) {
+      showSummary();
+      return;
+    }
+
+    const q = questions[qOrder[index]];
+    qIndexEl.textContent = index + 1;
+    stemEl.innerHTML = q.stem;
+
+    currentOptionOrder = shuffle(q.options.map((_, i) => i));
+    currentOptionIndex = 0;
+    results.push({ questionId: q.id, correct: false, selectedOptionId: null, presentedOptions: [] });
+
+    feedback.textContent = '';
+    renderCurrentOption();
+  }
+
+  function renderCurrentOption() {
+    const q = questions[qOrder[currentQ]];
+
+    if (currentOptionIndex >= currentOptionOrder.length) {
+      finalizeQuestion(false, null);
+      return;
+    }
+
+    const opt = q.options[currentOptionOrder[currentOptionIndex]];
+    optionTextEl.innerHTML = opt.text;
+    optionTextEl.setAttribute('aria-label', 'Option: ' + opt.text);
+    feedback.innerHTML = `<em>Option ${currentOptionIndex + 1} of ${currentOptionOrder.length}</em>`;
+    selectBtn.focus();
+  }
+
+  function handleSelect() {
+    const q = questions[qOrder[currentQ]];
+    const opt = q.options[currentOptionOrder[currentOptionIndex]];
+    const r = results[results.length - 1];
+
+    r.presentedOptions.push(opt.id);
+
+    if (!r.selectedOptionIds) r.selectedOptionIds = [];
+    r.selectedOptionIds.push(opt.id);
+
+    if (opt.correct) {
+      // Option is correct, continue to next option
+      currentOptionIndex++;
+      renderCurrentOption();
+    } else {
+      // Selected an incorrect option: question immediately incorrect
+      finalizeQuestion(false);
+    }
+  }
+
+  function handleReject() {
+    const q = questions[qOrder[currentQ]];
+    const opt = q.options[currentOptionOrder[currentOptionIndex]];
+    const r = results[results.length - 1];
+
+    r.presentedOptions.push(opt.id);
+
+    // move to next option
+    currentOptionIndex++;
+    renderCurrentOption();
+  }
+
+  // Finalize question for multiple correct answers
+  function finalizeQuestion(correct) {
+    const r = results[results.length - 1];
+    r.correct = correct !== undefined ? correct : true; // default true if no wrong option selected
+
+    // Determine if the question is fully correct
+    const q = questions[qOrder[currentQ]];
+    const correctIds = q.options.filter(o => o.correct).map(o => o.id);
+    const selectedIds = r.selectedOptionIds || [];
+
+    // Question is correct if all correct options were selected and no incorrect ones were selected
+    const allCorrectSelected = correctIds.every(id => selectedIds.includes(id));
+    const anyIncorrectSelected = selectedIds.some(id => !correctIds.includes(id));
+    r.correct = allCorrectSelected && !anyIncorrectSelected;
+
+    // Show feedback
+    feedback.innerHTML = r.correct
+      ? '<strong>Correct!</strong> You selected all correct options.'
+      : `<strong>Incorrect.</strong> Correct options: "${q.options.filter(o=>o.correct).map(o=>o.text).join('", "')}"`;
+
+    // Disable buttons briefly
+    selectBtn.disabled = true;
+    rejectBtn.disabled = true;
+    nextQBtn.disabled = true;
+
+    setTimeout(() => {
+      selectBtn.disabled = false;
+      rejectBtn.disabled = false;
+      nextQBtn.disabled = false;
+
+      currentQ++;
+      updateProgress();
+      showQuestionAt(currentQ);
+      updateNextButton();
+    }, 5000);
+  }
+
+  function updateProgress() {
+    const pct = Math.round((currentQ / questions.length) * 100);
+    bar.style.width = pct + '%';
+  }
+
+  function showSummary() {
+    const total = results.length;
+    const correctCount = results.filter(r => r.correct).length;
+
+    resultsEl.innerHTML = `<strong>${correctCount}</strong> / ${total} correct`;
+    const list = document.createElement('ol');
+
+    results.forEach((r, idx) => {
+      const q = questions[qOrder[idx]];
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${q.stem}</strong><br>Presented options: ${r.presentedOptions.join(', ')}<br>Selected: ${r.selectedOptionId || '—'} — ${r.correct ? '<span style="color:#6ee7b7">Correct</span>' : '<span style="color:#fda4af">Incorrect</span>'}`;
+      list.appendChild(li);
+    });
+
+    resultsEl.appendChild(list);
+
+    stemEl.textContent = 'Exam complete — thank you.';
+    optionTextEl.textContent = '';
+    selectBtn.style.display = 'none';
+    rejectBtn.style.display = 'none';
+    nextQBtn.style.display = 'none';
+    feedback.innerHTML = '';
+    bar.style.width = '100%';
+  }
+
+  function updateNextButton() {
+    nextQBtn.style.display = allowSkip ? 'inline-block' : 'none';
+  }
+
+  function attachHandlers() {
+    selectBtn.addEventListener('click', handleSelect);
+    rejectBtn.addEventListener('click', handleReject);
+    nextQBtn.addEventListener('click', () => finalizeQuestion(false, null));
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); handleSelect(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); handleReject(); }
+    });
+  }
+
+  function shuffle(arr) {
+    const res = arr.slice();
+    for (let i = res.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [res[i], res[j]] = [res[j], res[i]];
+    }
+    return res;
+  }
+
+  // Start by loading questions
+  loadQuestions();
+</script>
+
+</body>
+</html>

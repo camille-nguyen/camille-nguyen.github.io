@@ -1,0 +1,272 @@
+[
+  {
+    "stem": "Can this authenticator be both a possession and biometric factor type?",
+    "options": [
+      {"text": "FIDO2/WebAuthn",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a statement type that is included in a SAML assertion?",
+    "options": [
+      {"text": "Profile",      "correct": false},
+      {"text": "Authorization", "correct": true},
+      {"text": "Federation",     "correct": false},
+      {"text": "Schema",  "correct": false},
+      {"text": "Authentication",     "correct": true}
+    ]
+  },
+  {
+    "stem": "Can an Okta Administrator use this query to identify user creation events in the Okta System log?",
+    "options": [
+      {"text": "user.account.create",  "correct": false},
+      {"text": "user.lifecycle.new",  "correct": false},
+      {"text": "application.user_membership.create",  "correct": false},
+      {"text": "user.lifecycle.create",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a way to receive status information and alerts on the Okta Service?",
+    "options": [
+      {"text": "Use the Okta Org Admin API to receive Okta Status alerts",  "correct": false},
+      {"text": "Subscribe to receive alerts from the Okta Community page",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An Okta Administrator has integrated a third-party application to their company's Okta org.\nIs this what the administrator must do to enable automatic updates of an Okta user attribute in the application?",
+    "options": [
+      {"text": "In Profile Editor, enable update user attribute in the application and map the attribute to the application",  "correct": true},
+      {"text": "Map the attribute from the application to Okta",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about configuring Okta FastPass?",
+    "options": [
+      {"text": "An Okta Administrator must create a new password policy for Okta FastPass",  "correct": false},
+      {"text": "All versions of Okta Verify are compatible with Okta FastPass",  "correct": false},
+      {"text": "An Okta Administrator needs to configure a Global Session Policy for Okta FastPass",  "correct": true},
+      {"text": "An Okta Group must be created that includes all users who will be using Okta FastPass",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An Okta Administrator is running the Okta Active Directory (AD) agent installer to install the AD Agent on a domain joined server.\nIs this the minimum AD user account permission required to run the installer?",
+    "options": [
+      {"text": "Domain User",  "correct": false},
+      {"text": "Local Administrator",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about what happens when an Okta account is suspended?",
+    "options": [
+      {"text": "An Okta administrator <strong>CANNOT</strong> perform profile updates on the Okta account",  "correct": false},
+      {"text": "All application assignments are removed and the password is permanently deleted for the Okta account",  "correct": false},
+      {"text": "The Okta user can sign in to Okta to access applications",  "correct": false},
+      {"text": "The Okta user <strong>CANNOT</strong> access their applications or the Okta End-User dashboard. Their application assignments are unaffected and their user profile can be updated.",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about Global Session Policy persistent cookies?",
+    "options": [
+      {"text": "If a user quits their browser and reopens the browser, the browser session is persisted unless the user has signed out.",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this what happens when a user launches a Service Provider (SP) initiated application from the Okta Dashboard?",
+    "options": [
+      {"text": "The user will be Just-In-Time (JIT) provisioned into the application",  "correct": false},
+      {"text": "The user will be assigned to the application",  "correct": false},
+      {"text": "The user will receive an error from the downstream application",  "correct": true},
+      {"text": "The user will be signed out of Okta",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a browser that the Okta Browser Plugin does <strong>NOT</strong> support?",
+    "options": [
+      {"text": "Microsoft Edge",  "correct": false},
+      {"text": "Google Chrome",  "correct": false},
+      {"text": "Mozilla Firefox",  "correct": false},
+      {"text": "Internet Explorer 11",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Can these base Okta user profile attributes be set to be \"optional\" or \"required\" for Okta sourced users?",
+    "options": [
+      {"text": "Email and Title",  "correct": false},
+      {"text": "FirstName and LastName",  "correct": true},
+      {"text": "City and State",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a supported option for Okta Verify number challenges?",
+    "options": [
+      {"text": "Never",  "correct": true},
+      {"text": "Only for high risk sign-in attempts",  "correct": true},
+      {"text": "All push challenges",  "correct": true},
+      {"text": "Always",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about search filters in the Tasks dashboard in Okta?",
+    "options": [
+      {"text": "Tasks can be filtered by users",  "correct": true},
+      {"text": "Tasks <strong>CANNOT</strong> be filtered by group",  "correct": false},
+      {"text": "Tasks can be filtered by application",  "correct": true},
+      {"text": "Tasks <strong>CANNOT</strong> be filtered by date",  "correct": false},
+      {"text": "Tasks can be filtered by authentication",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An administrator needs to use Okta to control application assignment based on user profile attributes.\nIs this what the administrator needs to configure?",
+    "options": [
+      {"text": "Okta sign-on policy",  "correct": false},
+      {"text": "Universal Directory",  "correct": false},
+      {"text": "Group Rule",  "correct": true},
+      {"text": "Application sign-on policy",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An IT professional wants to ensure that attributes for the Okta user profile are properly mapped to various applications.\nDoes the following action achieve this goal?",
+    "options": [
+      {"text": "Verify directory and application profile mastery",  "correct": false},
+      {"text": "Verify a mapping between the Okta user profile and the app user profile",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is it appropriate to use Agent-based Provisioning in an environment that has following service or element?",
+    "options": [
+      {"text": "G Suite used for email and calendaring",  "correct": false},
+      {"text": "Active Directory Federated Services",  "correct": false},
+      {"text": "An on-premises Active Directory service",  "correct": true},
+      {"text": "An on-premises Lightweight Directory Access Protocol (LDAP) service",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is the following statement a valid reason for selecting Security Assertion Markup Language (SAML) over Secure Web Authentication (SWA)?",
+    "options": [
+      {"text": "SWA applications can be configured to authenticate without the use of passwords",  "correct": false},
+      {"text": "SAML is standards based and allows for interoperability among multiple vendors",  "correct": true},
+      {"text": "SWA applications are not required to use HTTPS for secure password submission",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An IT professional is configuring several SaaS applications for access by directory-mastered users who use form-based authentication.\nWhich authentication method is appropriate for this scenario?",
+    "options": [
+      {"text": "Okta Verify",  "correct": false},
+      {"text": "SMS",  "correct": false},
+      {"text": "WS-Fed",  "correct": false},
+      {"text": "SWA",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this attribute required when creating a new Okta mastered user account?",
+    "options": [
+      {"text": "Secondary email",  "correct": false},
+      {"text": "Department",  "correct": false},
+      {"text": "Primary email",  "correct": true},
+      {"text": "Phone number",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about the functionality available to Okta end users?",
+    "options": [
+      {"text": "Okta end users can deactivate their accounts",  "correct": false},
+      {"text": "Okta end users can modify the arrangement of application icons on their dashboard",  "correct": true},
+      {"text": "Okta end users can enable auto-launch for dashboard applications",  "correct": true},
+      {"text": "Okta end users can upload a photo as their security image",  "correct": false},
+      {"text": "Okta end users can modify their username",  "correct": false},
+      {"text": "Okta end users can change the Okta user interface display language",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Does the Okta Mobile app allow an end user to do this?",
+    "options": [
+      {"text": "Notify the user of incoming emails through Okta apps",  "correct": false},
+      {"text": "Track a user's location",  "correct": false},
+      {"text": "Access web applications through Okta Single Sign-On (SSO)",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Does this multifactor authentication (MFA) type provide strong and effective resistance against man-in-the-middle (MITM) attacks?",
+    "options": [
+      {"text": "Voice",  "correct": false},
+      {"text": "SMS",  "correct": false},
+      {"text": "Universal 2nd Factor (U2F)",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a required step to integrate Okta with an LDAP directory?",
+    "options": [
+      {"text": "Install and configure the Okta LDAP Agent",  "correct": true},
+      {"text": "Create a new LDAP directory",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An end user is experiencing an issue with the Okta Browser plugin.\nIs this the first step an administrator should take to troublesoot the issue?",
+    "options": [
+      {"text": "Review the dashboard in the Okta Administrator application",  "correct": false},
+      {"text": "Verify the Okta Browser plugin is enabled",  "correct": true},
+      {"text": "Review the service history at trust.okta.com",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Does this statement correctly describe how the Okta Integration Network (OIN) is used in the Okta Service?",
+    "options": [
+      {"text": "OIN apps are available to all Okta customers",  "correct": true},
+      {"text": "All applications in the OIN have been integrated by Okta and been tested by Okta engineers",  "correct": false},
+      {"text": "The OIN contains information about whether an application supports provisioning",  "correct": true},
+      {"text": "All apps in the OIN support SAML",  "correct": false},
+      {"text": "Applications can be added to the OIN by the Okta community",  "correct": true},
+      {"text": "",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Company policy dictates that multifactor authentication (MFA) is required when accessing corporate applications.\nIs this an Okta-provided MFA option?",
+    "options": [
+      {"text": "Okta Mobile",  "correct": false},
+      {"text": "Okta Mobility Management",  "correct": false},
+      {"text": "Okta Verify",  "correct": true},
+      {"text": "Okta Authenticator",  "correct": false},
+      {"text": "SMS Authenticator",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this what an administrator must do to integrate Okta with an application that supports federation but is NOT in the Okta Integration Network (OIN)?",
+    "options": [
+      {"text": "Create a Secure Web Authentication (SWA) application",  "correct": false}, 
+      {"text": "Clone and modify a similar application from the OIN",  "correct": false},
+      {"text": "Create a SAML application using the Application Integration Wizard (AIW)",  "correct": true},
+      {"text": "Request that Okta add the application to OIN",  "correct": false},
+      {"text": "Create a WS-FED template application",  "correct": true}
+    ]
+  },
+  {
+    "stem": "The Active Directory (AD) administrator of a company wants to integrate its directory services with Okta.\nWill the following action provide redundancy for delegated user authentication?",
+    "options": [
+      {"text": "Install two or more Okta AD Agents on separate domain member servers",  "correct": true}
+    ]
+  },
+  {
+    "stem": "The IT department has determined that all new employees will receive access to Office365, Concur, and Workday applications on their first day of work. Some employees in specific deparments additionally require access to the Skytap, WebEx, and Asana applications, depending upon their job role.\nCan an employee use this Okta self-service option to gain access to the three additional applications?",
+    "options": [
+      {"text": "Change settings on their homepage to allow IT to directly add the new applications",  "correct": false},
+      {"text": "Create an application task in the end-user home page",  "correct": false},
+      {"text": "Email the IT deparment asking for access to the applications",  "correct": false},
+      {"text": "Make an application request via +Add Apps feature",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a true statement about attribute mappings?",
+    "options": [
+      {"text": "Attribute mappings can be disabled",  "correct": true},
+      {"text": "Attributes can be applied when creating or updating users",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a method of configuring groups within Okta?",
+    "options": [
+      {"text": "Using the Okta Administrator Application",  "correct": true},
+      {"text": "Importing from a CSV file",  "correct": false},
+      {"text": "Importing from Active Directory",  "correct": true},
+      {"text": "Importing an LDAP Data Interchange Format (LDIF) file",  "correct": false}
+    ]
+  }
+]

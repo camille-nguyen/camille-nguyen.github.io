@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DOMC Question Editor</title>
+  <style>
+    body{font-family:Inter,system-ui,sans-serif;margin:0;background:#0f172a;color:#e6eef8;padding:24px}
+    h1{margin-top:0}
+    .card{background:rgba(255,255,255,0.05);padding:20px;border-radius:12px;margin-bottom:20px}
+    input,textarea{width:100%;padding:10px;margin-top:6px;margin-bottom:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:#0b1220;color:#e6eef8}
+    button{padding:10px 16px;border:0;border-radius:8px;font-weight:600;cursor:pointer;margin-right:8px}
+    .save{background:#10b981;color:#042027}
+    .delete{background:#ef4444;color:white}
+    .add-option{background:#3b82f6;color:white}
+    .add-question{background:#06b6d4;color:#042027;margin-top:10px}
+    .option{padding:12px;background:rgba(255,255,255,0.03);border-radius:8px;margin-bottom:8px}
+    label{font-size:0.9rem;color:#94a3b8}
+    a{color:#7dd3fc}
+  </style>
+</head>
+<body>
+  <h1>DOMC Question Editor</h1>
+  <p>Edit, add, or delete questions. Changes are saved to <strong>localStorage</strong>. The exam page will load these stored questions automatically.</p>
+  <p><a href="domc_exam.html" target="_blank">➡️ Open the DOMC Exam Page</a></p>
+
+  <div id="questionList"></div>
+
+  <button class="add-question" onclick="addQuestion()">+ Add New Question</button>
+
+  <script>
+    // Instead of localStorage: load from/upload to a questions.json file
+    let questions = [];
+
+    async function loadFile(event){
+      const file = event.target.files[0];
+      if(!file) return;
+      const text = await file.text();
+      questions = JSON.parse(text || '[]');
+      render();
+    }
+
+    function downloadJSON(){
+      const blob = new Blob([JSON.stringify(questions, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = './questions.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function addQuestion(){
+      questions.push({
+        id: 'q' + Date.now(),
+        stem: '',
+        options: [ {id:'a', text:'', correct:false} ]
+      });
+      render();
+    }
+
+    function addOption(qIndex){
+      const q = questions[qIndex];
+      const letter = String.fromCharCode(97 + q.options.length);
+      q.options.push({id:letter, text:'', correct:false});
+      render();
+    }
+
+    function deleteQuestion(i){
+      if(confirm('Delete this question?')){
+        questions.splice(i,1);
+        render();
+      }
+    }
+
+    function deleteOption(qIndex, optIndex){
+      const q = questions[qIndex];
+      if(q.options.length <= 1){
+        alert('A question must have at least one option.');
+        return;
+      }
+      q.options.splice(optIndex,1);
+      render();
+    }
+
+    function setStem(qIndex, value){ questions[qIndex].stem = value; }
+    function setOptionText(qIndex, optIndex, value){ questions[qIndex].options[optIndex].text = value; }
+
+    function setCorrect(qIndex, optIndex){
+      const q = questions[qIndex];
+      q.options.forEach((o,i)=> o.correct = (i===optIndex));
+      render();
+    }
+
+    function render(){
+      const container = document.getElementById('questionList');
+      container.innerHTML = '';
+
+      questions.forEach((q, qi)=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        card.innerHTML += `<label>Question:</label>
+          <textarea rows="2" oninput="setStem(${qi}, this.value)">${q.stem}</textarea>
+          <button class="delete" onclick="deleteQuestion(${qi})">Delete Question</button>`;
+
+        q.options.forEach((opt, oi)=>{
+          const optDiv = document.createElement('div');
+          optDiv.className = 'option';
+          optDiv.innerHTML = `
+            <label>Option ${opt.id.toUpperCase()}:</label>
+            <input value="${opt.text}" oninput="setOptionText(${qi},${oi},this.value)">
+            <label><input type="radio" name="correct_${q.id}" ${opt.correct?'checked':''} onclick="setCorrect(${qi},${oi})"> Correct</label>
+            <button class="delete" onclick="deleteOption(${qi},${oi})">Delete</button>
+          `;
+          card.appendChild(optDiv);
+        });
+
+        card.innerHTML += `<button class="add-option" onclick="addOption(${qi})">+ Add Option</button>`;
+        container.appendChild(card);
+      });
+    }
+
+    // Add file controls to header
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const header = document.createElement('div');
+      header.innerHTML = `
+        <p>
+          <input type="file" accept="application/json" onchange="loadFile(event)">
+          <button class="save" onclick="downloadJSON()">💾 Download questions.json</button>
+        </p>`;
+      document.body.insertBefore(header, document.body.children[1]);
+    });
+</script>
+</body>
+</html>
