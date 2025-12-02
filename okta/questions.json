@@ -214,8 +214,7 @@
       {"text": "All applications in the OIN have been integrated by Okta and been tested by Okta engineers",  "correct": false},
       {"text": "The OIN contains information about whether an application supports provisioning",  "correct": true},
       {"text": "All apps in the OIN support SAML",  "correct": false},
-      {"text": "Applications can be added to the OIN by the Okta community",  "correct": true},
-      {"text": "",  "correct": false}
+      {"text": "Applications can be added to the OIN by the Okta community",  "correct": true}
     ]
   },
   {
@@ -257,6 +256,8 @@
     "stem": "Is this a true statement about attribute mappings?",
     "options": [
       {"text": "Attribute mappings can be disabled",  "correct": true},
+      {"text": "Attribute always have to be mapped",  "correct": false},
+      {"text": "Attribute can be applied on user deactivation",  "correct": false},
       {"text": "Attributes can be applied when creating or updating users",  "correct": true}
     ]
   },
@@ -267,6 +268,249 @@
       {"text": "Importing from a CSV file",  "correct": false},
       {"text": "Importing from Active Directory",  "correct": true},
       {"text": "Importing an LDAP Data Interchange Format (LDIF) file",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this the policy to implement if an administrator needs to ensure that end users are prompted for multifactor authentication (MFA) when they attempt to log in to Okta?",
+    "options": [
+      {"text": "Password Policy",  "correct": false},
+      {"text": "Application sign-on policy",  "correct": false},
+      {"text": "Single Sign-On (SSO) policy",  "correct": false},
+      {"text": "Sign-on Policy",  "correct": true}
+    ]
+  },
+  {
+    "stem": "A company has recently deployed Okta and set up many web-based corporate applications to use Okta Single Sign-On (SSO). Prior to the Okta deployment, user access was managed through Active Directory (AD) users and departmental groups. More than 5,000 users and departmental groups were imported from the AD domain into the Universal Directory. Given this set of conditions, is this the proper method for granting access to an Okta-connected order management application for all users in the accounting department?",
+    "options": [
+      {"text": "Import the AD group into the accounting application",  "correct": false},
+      {"text": "Assign the imported AD accounting group to the application",  "correct": true},
+      {"text": "Enable AD group provisioning in the accounting application",  "correct": false}
+    ]
+  },
+  {
+    "stem": "An administrator needs to create a rule to enforce multifactor authentication (MFA) for only the Microsoft Office 365 application and <strong>NOT</strong> for the entire Okta org.\nIs this the policy the administrator should create?",
+    "options": [
+      {"text": "Okta sign-on",  "correct": false},
+      {"text": "Password",  "correct": false},
+      {"text": "Application sign-on",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this what happens when an Okta Administrator changes the theme of an Okta org?",
+    "options": [
+      {"text": "Theme of Okta Mobile changes",  "correct": false},
+      {"text": "Theme of the Okta Administrator Application changes",  "correct": false},
+      {"text": "Theme of the Okta end user dashboard changes",  "correct": true},
+      {"text": "Theme of Okta Verify changes",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Is this a valid user status?",
+    "options": [
+      {"text": "Password Reset",  "correct": true},
+      {"text": "Removed",  "correct": false},
+      {"text": "Reactivated",  "correct": false},
+      {"text": "Pending Activation",  "correct": true},
+      {"text": "Deactivated",  "correct": true},
+      {"text": "Active",  "correct": true}
+    ]
+  },
+  {
+    "stem": "An Okta Administrator is configuring a cloud application from the Okta Integration Network (OIN) so that the following User Lifecycle Management functions are enabled: Create, Read, Update, and Deactivate.\nIs this a true statement?",
+    "options": [
+      {"text": "When an Okta user is unassigned from the cloud application, Okta automatically deprovisions a user profile from the cloud application.",  "correct": true},
+      {"text": "When an Okta user is unassigned from the cloud application, Okta purges user history from the application logs",  "correct": false},
+      {"text": "When an Okta user is assigned to the cloud application, Okta automatically creates a user profile in the cloud application",  "correct": true}
+    ]
+  },
+  {
+    "stem": "A member of the IT team is setting up authentication for Office 365 within the Okta Administrator Application. Company policy dictates that users are not required to input a separate password when accessing this application. Will the following configuration support the company policy?",
+    "options": [
+      {"text": "Configure authentication using multifactor authentication",  "correct": false},
+      {"text": "Configure authentication using Secure Web Authentication (SWA)",  "correct": false},
+      {"text": "Configure an application user profile for Office 365",  "correct": false},
+      {"text": "Configure authentication using Web Services Federation (WS-Fed)",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this an Okta feature you can use to automate application assignment to directory-mastered users?",
+    "options": [
+      {"text": "Policies",  "correct": false},
+      {"text": "Profile Masters",  "correct": false},
+      {"text": "Roles",  "correct": false},
+      {"text": "Group Rules",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Can an IT professional use this method to integrate applications into Okta?",
+    "options": [
+      {"text": "Application sign-on policy",  "correct": false},
+      {"text": "Okta Integration Network (OIN)",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Can an Okta-mastered end user complete a self-service password reset by performing the following action?",
+    "options": [
+      {"text": "Use Okta Mobile instead of a password reset",  "correct": false},
+      {"text": "Visit okta.com/password to initiate a reset",  "correct": false},
+      {"text": "Use Okta Verify instead of a password to gain access",  "correct": false},
+      {"text": "Select the Forgot Password option from the log on screen",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this the Okta support offering that provides a customer with a named Customer Success Manager (CSM)?",
+    "options": [
+      {"text": "Premier Success",  "correct": false},
+      {"text": "Premier Access Success",  "correct": false},
+      {"text": "Okta For Good",  "correct": false},
+      {"text": "Premier Plus Success",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this an example of an identity and access management (IAM) feature provided by Okta?",
+    "options": [
+      {"text": "Policies for enforcing sign-on behavior, multifactor authentication (MFA), and password complexity",  "correct": true},
+      {"text": "Active Directory (AD) integration that allows users to authenticate through Okta",  "correct": true},
+      {"text": "Remote application performance monitoring",  "correct": false},
+      {"text": "Employee system of record",  "correct": true},
+      {"text": "Multifactor authentication (MFA) into Okta and into applications protected by Okta",  "correct": true},
+      {"text": "HR-driven IT Provisioning",  "correct": true}
+    ]
+  },
+  {
+    "stem": "A user cannot remember their credentials for a Secure Web Authentication (SWA) app.\nDoes this feature in Okta help a user retrieve their credentials?",
+    "options": [
+      {"text": "Password Reveal",  "correct": true},
+      {"text": "Remember Me",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Does this security authentication factor generate a six-digit code using the industry-standard algorithm, also known as a soft-token?",
+    "options": [
+      {"text": "Okta Verify",  "correct": true},
+      {"text": "YubiKey",  "correct": false},
+      {"text": "Security Question",  "correct": false},
+      {"text": "Google Authenticator",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a true statement regarding API tokens?",
+    "options": [
+      {"text": "The user creating the token must be enrolled in multifactor authentication (MFA)",  "correct": false},
+      {"text": "The token is only visible during creation",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this statement about profile mastering in Okta true?",
+    "options": [
+      {"text": "It defines the Admin roles",  "correct": false},
+      {"text": "It defines which Create, Read, Update, Deprovision (CRUD) actions can be performed in an application",  "correct": false},
+      {"text": "It defines where the profile is created and maintained",  "correct": true},
+      {"text": "It defines where the Okta user profile's attributes will be derived",  "correct": true}
+    ]
+  },
+  {
+    "stem": "A help desk employee notices that when users are assigned to the Sales group in Okta, the new Salesforce accounts for the assigned users are not being automatically created in the Salesforce application, as expected.\nWill this action correct the issue?",
+    "options": [
+      {"text": "Turn on Attribute-level Mastering and enable [Create user name, Update user name, and Deactivate user name] for the Salesforce application user profile",  "correct": false},
+      {"text": "Import users from the target application and enable Profile Master for the Salesforce application",  "correct": false},
+      {"text": "Apply an application-level sign-on policy to the Salesforce application",  "correct": false},
+      {"text": "Turn on the [Create User, Update user, and Deactivate user] provisioning features for the Salesforce application.=",  "correct": true}
+    ]
+  },
+  {
+    "stem": "A company is discussing how to integrate its current IT infrastructure with Okta and with cloud applications using the Okta Integration Network (OIN). The company wants to completely centralize the application authentication process and eliminate the need to manage passwords.\nWill the following authentication method ensure that these goals are met?",
+    "options": [
+      {"text": "Secure Web Authentication (SWA)",  "correct": false},
+      {"text": "API",  "correct": false},
+      {"text": "Security Assertion Markup Language (SAML)",  "correct": true},
+      {"text": "Workday as a master",  "correct": false}
+    ]
+  },
+  {
+    "stem": "A customer opens a support case and the technician assigns it as a severity level of P1.\nIs the following an example of a situation that warrants security level P1?",
+    "options": [
+      {"text": "Users authenticate to Okta but are receiving random 'Page Not Found' errors",  "correct": false},
+      {"text": "A service interruption is affecting multiple users and preventing access",  "correct": true},
+      {"text": "All users are receiving a 'Page Not Found' message during authentication",  "correct": true},
+      {"text": "A critical business application is inaccessible by all employees",  "correct": true}
+    ]
+  },
+  {
+    "stem": "If the system is properly configured, is this an action that an Okta-mastered user can perform without the aid of an administrator?",
+    "options": [
+      {"text": "Change a Forgotten Password question",  "correct": true},
+      {"text": "Modify a telephone number",  "correct": true},
+      {"text": "Create a custom Forgot Password question",  "correct": true},
+      {"text": "Upload a custom security image from a personal photo library",  "correct": false},
+      {"text": "Change a password",  "correct": true},
+      {"text": "Add a custom field to the user profile",  "correct": false}
+    ]
+  },
+  {
+    "stem": "A company's IT department is integrating its Active Directory structure with Okta. For convenience, directory-mastered users must have the ability to change their Active Directory passwords within Okta. Although the AD user accounts are being successfully imported into Okta, users are unable to change their passwords.\nIs the following condition preventing users from changing their passwords?",
+    "options": [
+      {"text": "Desktop Single Sign-On (SSO) is enabled",  "correct": false},
+      {"text": "Delegated authentication is disabled",  "correct": true},
+      {"text": "An Okta Active Directory Service Account has not been created yet",  "correct": false}
+    ]
+  },
+  {
+    "stem": "A company decides to increase Okta org security policies by applying stricter password policies for both employees and for Okta administrators. Additionally, the company wants Okta administrators to use Okta Verify as a second factor.\nIs this the correct way to order groups in the Sign-On Policies?",
+    "options": [
+      {"text": "Employees group nested inside Adminsitrators group",  "correct": false},
+      {"text": "Employees group then Administrators group",  "correct": false},
+      {"text": "Administrators group then Employees group",  "correct": true},
+      {"text": "Administrators group and Employees group at the same level",  "correct": false}
+    ]
+  },
+  {
+    "stem": "Employees in a company's marketing department share access to several social media accounts that require usernames and passwords.\nIs this the authentication method that should be used to configure shared access to these applications?",
+    "options": [
+      {"text": "SCIM",  "correct": false},
+      {"text": "SCIM",  "correct": false},
+      {"text": "SWA",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this what an Okta Administrator should do to determine which Secure Web Authentication (SWA) applications can be converted to SAML?",
+    "options": [
+      {"text": "Run the SAML Capable Apps report",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Does the Okta Mobile app allow an end user to do this?",
+    "options": [
+      {"text": "",  "correct": true},
+      {"text": "",  "correct": false}
+    ]
+  },
+  {
+    "stem": "",
+    "options": [
+      {"text": "",  "correct": true},
+      {"text": "",  "correct": false}
+    ]
+  },
+  {
+    "stem": "",
+    "options": [
+      {"text": "",  "correct": true},
+      {"text": "",  "correct": false}
+    ]
+  },
+  {
+    "stem": "",
+    "options": [
+      {"text": "",  "correct": true},
+      {"text": "",  "correct": false}
+    ]
+  },
+  {
+    "stem": "",
+    "options": [
+      {"text": "",  "correct": true},
+      {"text": "",  "correct": false}
     ]
   }
 ]
