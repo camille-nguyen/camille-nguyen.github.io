@@ -548,7 +548,7 @@
       {"text": "Tokens permit Okta API access on behalf of a named Okta user account",  "correct": true},
       {"text": "Token values can be viewed in the Okta Administrator console up to ten days after they have been generated",  "correct": false},
       {"text": "The user creating the token must be enrolled in multifactor authentication (MFA)",  "correct": false},
-      {"text": "The token is only visible during creation",  "correct": true}
+      {"text": "The token is only visible during creation",  "correct": true},
       {"text": "Token expiration dates are automatically reset whenever they are used to authorize an API call",  "correct": true},
       {"text": "Tokens can be reactivated after they are revoked",  "correct": false}
     ]
