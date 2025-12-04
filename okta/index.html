@@ -84,6 +84,16 @@
     <p><a href="../index.html" target="_blank">Return to Homepage</a></p>
   </div>
 
+  <section id="endScreen" class="card" style="margin-top:24px; display:none;">
+    <h2>Exam Finished</h2>
+    <p id="finalScore"></p>
+
+    <h3>Questions you failed</h3>
+    <div id="failedList"></div>
+
+    <button id="restartBtn" class="select" style="margin-top:16px;">Restart exam</button>
+  </section>
+
   <script>
   // Preload sounds
   const correctSound = new Audio('../assets/sounds/correct.mp3');
@@ -297,7 +307,57 @@
     results.forEach((r, idx) => {
       const q = questions[qOrder[idx]];
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${q.stem}</strong><br>Presented options: ${r.presentedOptions.join(', ')}<br>Selected: ${r.selectedOptionId || '—'} — ${r.correct ? '<span style="color:#6ee7b7">Correct</span>' : '<span style="color:#fda4af">Incorrect</span>'}`;
+
+      // Build lists
+      const correctOpts = q.options.filter(o => o.correct);
+      const correctTexts = correctOpts.map(o => o.text);
+
+      const selectedOpts = (r.selectedOptionIds || [])
+        .map(id => q.options.find(o => o.id === id))
+        .filter(Boolean);
+      const selectedTexts = selectedOpts.map(o => o.text);
+
+      // Which correct answers were missed?
+      const missedTexts = correctTexts.filter(text => !selectedTexts.includes(text));
+
+      // Which incorrect answers were selected?
+      const incorrectSelectedTexts = selectedOpts
+        .filter(o => !o.correct)
+        .map(o => o.text);
+
+      // HTML output
+      li.innerHTML = `
+        ${q.stem}<br>
+
+        <div><strong>Correct options:</strong> ${
+          correctTexts.length ? correctTexts.join(', ') : 'None'
+        }</div>
+
+        <div><strong>You selected:</strong> ${
+          selectedTexts.length ? selectedTexts.join(', ') : '—'
+        }</div>
+
+        ${
+          missedTexts.length
+            ? `<div style="color:#fbbf24;"><strong>Missing:</strong> ${missedTexts.join(', ')}</div>`
+            : ''
+        }
+
+        ${
+          incorrectSelectedTexts.length
+            ? `<div style="color:#f87171;"><strong>Incorrect selections:</strong> ${incorrectSelectedTexts.join(', ')}</div>`
+            : ''
+        }
+
+        <div style="margin-top:4px;">
+          ${
+            r.correct
+              ? '<span style="color:#6ee7b7; font-weight:bold;">Correct</span>'
+              : '<span style="color:#fda4af; font-weight:bold;">Incorrect</span>'
+          }
+        </div>
+      `;
+
       list.appendChild(li);
     });
 
