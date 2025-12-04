@@ -398,13 +398,6 @@
     ]
   },
   {
-    "stem": "Is this a true statement regarding API tokens?",
-    "options": [
-      {"text": "The user creating the token must be enrolled in multifactor authentication (MFA)",  "correct": false},
-      {"text": "The token is only visible during creation",  "correct": true}
-    ]
-  },
-  {
     "stem": "Is this statement about profile mastering in Okta true?",
     "options": [
       {"text": "It defines the Admin roles",  "correct": false},
@@ -446,7 +439,6 @@
     "options": [
       {"text": "Change a Forgotten Password question",  "correct": true},
       {"text": "Modify a telephone number",  "correct": true},
-      {"text": "Create a custom Forgot Password question",  "correct": true},
       {"text": "Upload a custom security image from a personal photo library",  "correct": false},
       {"text": "Change a password",  "correct": true},
       {"text": "Add a custom field to the user profile",  "correct": false}
@@ -504,7 +496,7 @@
   {
     "stem": "Is this a true statement about an Okta Early Access (EA) feature?",
     "options": [
-      {"text": "It is still in Beta",  "correct": true},
+      {"text": "It is still in Beta",  "correct": false},
       {"text": "It is a new or enhanced functionality",  "correct": true},
       {"text": "It is <strong>NOT</strong> supported by Okta Customer Support",  "correct": false},
       {"text": "It is available for eligible customers to selectively opt-in",  "correct": true}
@@ -523,7 +515,7 @@
     ]
   },
   {
-    "stem": "A marketing employee is asked to create a custom email template that includes corporate branding and legal verbiage.<br />Is this the scripting language uses to customize an email template?",
+    "stem": "A marketing employee is asked to create a custom email template that includes corporate branding and legal verbiage.<br />Is this the scripting language used to customize an email template?",
     "options": [
       {"text": "JavaServer Pages",  "correct": false},
       {"text": "JavaScript",  "correct": false},
@@ -555,6 +547,8 @@
       {"text": "Tokens are secret and should be treated as passwords",  "correct": true},
       {"text": "Tokens permit Okta API access on behalf of a named Okta user account",  "correct": true},
       {"text": "Token values can be viewed in the Okta Administrator console up to ten days after they have been generated",  "correct": false},
+      {"text": "The user creating the token must be enrolled in multifactor authentication (MFA)",  "correct": false},
+      {"text": "The token is only visible during creation",  "correct": true}
       {"text": "Token expiration dates are automatically reset whenever they are used to authorize an API call",  "correct": true},
       {"text": "Tokens can be reactivated after they are revoked",  "correct": false}
     ]
