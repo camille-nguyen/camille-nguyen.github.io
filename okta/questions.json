@@ -627,5 +627,22 @@
     "options": [
       {"text": "A rule can be configured to exclude one or more groups",  "correct": false}
     ]
+  },
+  {
+    "stem": "Is this a true statement about search filters in the Tasks dashboard in Okta?",
+    "options": [
+      {"text": "Tasks <strong>CANNOT</strong> be filtered by group?",  "correct": false},
+      {"text": "Tasks can be filtered by custom date ranges",  "correct": false},
+      {"text": "Tasks can be filtered by application",  "correct": true},
+      {"text": "Tasks can be filtered by user",  "correct": true}
+    ]
+  },
+  {
+    "stem": "Is this a way to receive status information and alerts on the Okta Service?",
+    "options": [
+      {"text": "Use the Okta Org Admin API to receive Okta Status alerts",  "correct": false},
+      {"text": "Subscribe to the Okta Status RSS feed to receive alerts",  "correct": true},
+      {"text": "Visit alerts.okta.com",  "correct": true}
+    ]
   }
 ]
