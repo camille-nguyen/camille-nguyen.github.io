@@ -1,0 +1,8 @@
+[
+    {
+      "stem": "Can this authenticator be both a possession and biometric factor type?",
+      "options": [
+        {"text": "FIDO2/WebAuthn",  "correct": true}
+      ]
+    }
+]

@@ -41,7 +41,6 @@
 <body>
   <div class="container">
     <header>
-      <a href="certif-admin.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  Admin Certification</a>
       <h1>Okta Professional Exam</h1>
       <div class="meta">Question <strong id="qIndex">0</strong>/<span id="qTotal">0</span></div>
     </header>
@@ -127,7 +126,7 @@
 
   // Load questions from JSON
   async function loadQuestions() {
-    const response = await fetch('./questions.json');
+    const response = await fetch('./questions-admin.json');
     const data = await response.json();
 
     questions = data.map((q, index) => ({
