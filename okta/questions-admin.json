@@ -1,8 +1,55 @@
 [
     {
-      "stem": "Can this authenticator be both a possession and biometric factor type?",
+      "stem": "When a user is on a network, is this a situation that would prevent Desktop Single Sign-On (SSO) from signing the user in automatically?",
       "options": [
-        {"text": "FIDO2/WebAuthn",  "correct": true}
+        {"text": "The IIS Server is not available",  "correct": true},
+        {"text": "The user does not have a valid Kerberos ticket",  "correct": true}
       ]
+    },
+    {
+        "stem": "An Okta Administrator needs to enable Active Directory mastered users to change passwords in Okta. Is this a step that the administrator needs to take?",
+        "options": [
+            {"text": "Configure Desktop SSO",  "correct": false},
+            {"text": "Set the Active Directory recovery options to <strong>true</strong>",  "correct": false},
+            {"text": "Install the Okta Password Sync Agent",  "correct": false},
+            {"text": "Ensure the Okta service account has elevated permissions in Active Directory",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this the default date range for which events are displayed in the Okta system log?",
+        "options": [
+            {"text": "Thirty days",  "correct": false},
+            {"text": "Seven days",  "correct": true}
+        ]
+    },{
+        "stem": "Users are unable to authenticate to Microsoft OneNote when using Desktop SSO/IWA. Is this a likely cause of the issue the users are experiencing?",
+        "options": [
+            {"text": "Desktop SSO/IWA does <strong>NOT</strong> work with OneNote",  "correct": false},
+            {"text": "Desktop SSO/IWA was <strong>NOT</strong> deployed in HTTPS mode",  "correct": true}
+        ]
+    },{
+        "stem": "Is this mapping type available when an administrator maps Okta attributes to Active Directory attributes?",
+        "options": [
+            {"text": "Clone user in Active Directory",  "correct": false},
+            {"text": "Remove duplicate",  "correct": false},
+            {"text": "Delete user in Active Directory",  "correct": false},
+            {"text": "Do not map",  "correct": true},
+            {"text": "Apply mapping on user create only",  "correct": true}
+        ]
+    },{
+        "stem": "Is this information contained in a SAML assertion?",
+        "options": [
+            {"text": "Access token",  "correct": false},
+            {"text": "Audience URI",  "correct": true},
+            {"text": "Entity ID/Issuer ID",  "correct": true},
+            {"text": "IdP authentication assertion",  "correct": false}
+        ]
+    },{
+        "stem": "Last week, an Okta administrator configured Okta to use Active Directory (AD) for Delegated Authentication. This week, a new Active Directory user is unable to log on to Okta.<br>Is this a reason why the new Active Directory user might be unable to authenticate?",
+        "options": [
+            {"text": "The user is outside of an Active Directory Organizational Unit (OU) that has been imported into Okta.",  "correct": true},
+            {"text": "The user was not successfully imported into Okta from Active Directory.",  "correct": true},
+            {"text": "The user account is disabled, or the user is locked out.",  "correct": true}
+        ]
     }
 ]
