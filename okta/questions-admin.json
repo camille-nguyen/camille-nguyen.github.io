@@ -193,5 +193,14 @@
             {"text": "Creating API endpoint throttling limits to protect the AD service from load spikes or service interruptions caused by submitted requests",  "correct": true},
             {"text": "Creating API endpoint throttling limits to protect the Okta service from load spikes or service interruptions caused by submitted requests","correct": true}
         ]
+    },
+    {
+        "stem": "Is this the purpose of an MFA enrollment policy?",
+        "options": [
+            {"text": "Controls how end users interact with an application",  "correct": false},
+            {"text": "Determines the types of authentication challenges end users experience when they sign into their account",  "correct": false},
+            {"text": "Determines which authenticators are required for administrators",  "correct": false},
+            {"text": "Controls how end users enroll in an authenticator","correct": true}
+        ]
     }
 ]
