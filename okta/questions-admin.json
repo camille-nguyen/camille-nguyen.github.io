@@ -44,12 +44,39 @@
             {"text": "Entity ID/Issuer ID",  "correct": true},
             {"text": "IdP authentication assertion",  "correct": false}
         ]
-    },{
+    },
+    {
         "stem": "Last week, an Okta administrator configured Okta to use Active Directory (AD) for Delegated Authentication. This week, a new Active Directory user is unable to log on to Okta.<br>Is this a reason why the new Active Directory user might be unable to authenticate?",
         "options": [
             {"text": "The user is outside of an Active Directory Organizational Unit (OU) that has been imported into Okta.",  "correct": true},
             {"text": "The user was not successfully imported into Okta from Active Directory.",  "correct": true},
             {"text": "The user account is disabled, or the user is locked out.",  "correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator is creating a custom attribute in Okta named \"Initials\" to streamline employees' experience with DocuSign. The Initials field must be populated when data is mapped from Active Directory to Okta.<br>Is this the Okta Expression Language function the administrator should use to complete the task?",
+        "options": [
+            {"text": "String.replaceFirst",  "correct": false},
+            {"text": "String.join",  "correct": false},
+            {"text": "String.subStringAfter",  "correct": false},
+            {"text": "String.substring",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this an example of a provisioning operation that Okta can perform in an application?",
+        "options": [
+            {"text": "Create user",  "correct": true},
+            {"text": "Delete all user passwords in an applciation",  "correct": false},
+            {"text": "Deactivate user",  "correct": true},
+            {"text": "Import a password from an application",  "correct": false},
+            {"text": "Push a password",  "correct": true},
+            {"text": "Update user",  "correct": true}
+        ]
+    },
+    {
+        "stem": "A company has the following environment:<ul><li>All employees and their group memberships are in an Active Directory domain.</li><li>A Lightweight Directory Access Protocol (LDAP) server contains all of the company's external users (customers and partners).</li><li>All of the employee user accounts are replicated in the LDAP server from Active Directory.</li><li>All company employees, customers, and partners need access to certain applications through Okta.</li></ul><\br>The company has integrated both Active Directory and LDAP with Okta.<br>Is this a valid method to resolve the user duplication arising from the employee accounts existing in both Active Directory and LDAP?",
+        "options": [
+            {"text": "If the employee, customer, and partner accounts are stored in different Organizational Units (OUs) in the LDAP server, then Okta can be configured to exclude the employee OU. This action will prevent the collision with the same users also being imported from Active Directory.",  "correct": true}
         ]
     }
 ]
