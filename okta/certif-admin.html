@@ -36,12 +36,21 @@
       display: block;
       margin-top: 6px;
     }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <a href="certif-professional.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  Go back to Professional Certification</a>
+      <a href="index.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  See list of exams</a>
       <h1>Okta Administrator Exam</h1>
       <div class="meta">Question <strong id="qIndex">0</strong>/<span id="qTotal">0</span></div>
     </header>
@@ -81,8 +90,7 @@
       <h3 style="margin:0 0 10px 0">Results</h3>
       <div id="results">No results yet.</div>
     </section>
-    <p><a href="./questions.html" target="_blank">Edit the questions</a></p>
-    <p><a href="../index.html" target="_blank">Return to Homepage</a></p>
+    <p><a href="../index.html" target="_blank">Return to portfolio</a></p>
   </div>
 
   <section id="endScreen" class="card" style="margin-top:24px; display:none;">
