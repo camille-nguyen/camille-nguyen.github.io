@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Okta Administrator Exam</title>
+  <title>Okta Professional Exam</title>
   <style>
     :root{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; --bg:#0f172a; --card:#0b1220; --accent:#7dd3fc; --muted:#94a3b8;}
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#071128 0%,#051226 100%);color:#e6eef8}
@@ -41,8 +41,8 @@
 <body>
   <div class="container">
     <header>
-      <a href="certif-professional.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  Go back to Professional Certification</a>
-      <h1>Okta Administrator Exam</h1>
+      <a href="certif-admin.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  Go to Admin Certification</a>
+      <h1>Okta Professional Exam</h1>
       <div class="meta">Question <strong id="qIndex">0</strong>/<span id="qTotal">0</span></div>
     </header>
 
@@ -127,7 +127,7 @@
 
   // Load questions from JSON
   async function loadQuestions() {
-    const response = await fetch('./questions-admin.json');
+    const response = await fetch('./questions-professional.json');
     const data = await response.json();
 
     questions = data.map((q, index) => ({
