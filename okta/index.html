@@ -4,10 +4,54 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Okta Exams</title>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.03);
+      --accent: #7dd3fc;
+    }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #071128 0%, #051226 100%);
+      color: #e6eef8;
+      text-align: center;
+    }
+    .container {
+      background: var(--card);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 { margin-bottom: 30px; font-weight: 700; }
+    .btn {
+      display: block;
+      padding: 15px 25px;
+      margin: 15px 0;
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+      color: #042027;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    i { margin-right: 8px; }
+  </style>
 </head>
 <body>
-      <a href="certif-professional.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i> Professional Certification</a>
-      <a href="certif-admin.html" class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i> Admin Certification</a>
+  <div class="container">
+    <h1>Okta Certifications</h1>
+    <a href="certif-professional.html" class="btn"><i class="fas fa-arrow-circle-right"></i> Professional Exam</a>
+    <a href="certif-admin.html" class="btn"><i class="fas fa-arrow-circle-right"></i> Administrator Exam</a>
+    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;"><a href="../index.html" style="color: var(--accent);">Back to Portfolio</a></p>
+  </div>
 </body>
 </html>
