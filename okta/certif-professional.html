@@ -13,7 +13,19 @@
       <div class="meta">Question <strong id="qIndex">0</strong>/<span id="qTotal">0</span></div>
     </header>
 
-    <main class="card">
+    <section id="setup" class="card" style="margin-bottom: 20px;">
+      <h3>Exam Settings</h3>
+      <label for="qLimit">Number of questions:</label>
+      <select id="qLimit">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="0" selected="selected">All</option>
+      </select>
+      <button id="startBtn" class="select" style="margin-top: 10px; width: 100%;">Start Exam</button>
+    </section>
+
+    <main class="card" id="quizMain" style="display:none;">
       <div class="meta">
         <div>Mode: <strong>Sequential options (DOMC)</strong></div>
         <div>Keyboard: <span class="kbd">&lt</span>=Select (true), <span class="kbd">&gt</span>=Reject (false)</div>
@@ -113,8 +125,17 @@
     // Update total in UI
     qTotalEl.textContent = questions.length;
 
-    // Start the exam now that questions are loaded
-    start();
+    // Show setup screen
+    document.getElementById('startBtn').addEventListener('click', () => {
+      const limit = parseInt(document.getElementById('qLimit').value);
+      if (limit > 0) {
+        qOrder = qOrder.slice(0, limit);
+      }
+      document.getElementById('setup').style.display = 'none';
+      document.getElementById('quizMain').style.display = 'block';
+      qTotalEl.textContent = qOrder.length;
+      start();
+    });
   }
 
   // Start exam
