@@ -29,7 +29,17 @@
 
   // Load questions from JSON
   async function loadQuestions() {
-    const response = await fetch('./questions-admin.json');
+    const page = window.location.pathname;
+
+    let jsonFile;
+
+    if (page.includes('admin')) {
+    jsonFile = './questions-admin.json';
+    } else {
+    jsonFile = './questions-professional.json';
+    }
+
+    const response = await fetch(jsonFile);
     const data = await response.json();
 
     questions = data.map((q, index) => ({
