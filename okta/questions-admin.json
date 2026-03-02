@@ -74,9 +74,124 @@
         ]
     },
     {
-        "stem": "A company has the following environment:<ul><li>All employees and their group memberships are in an Active Directory domain.</li><li>A Lightweight Directory Access Protocol (LDAP) server contains all of the company's external users (customers and partners).</li><li>All of the employee user accounts are replicated in the LDAP server from Active Directory.</li><li>All company employees, customers, and partners need access to certain applications through Okta.</li></ul><\br>The company has integrated both Active Directory and LDAP with Okta.<br>Is this a valid method to resolve the user duplication arising from the employee accounts existing in both Active Directory and LDAP?",
+        "stem": "A company has the following environment:<ul><li>All employees and their group memberships are in an Active Directory domain.</li><li>A Lightweight Directory Access Protocol (LDAP) server contains all of the company's external users (customers and partners).</li><li>All of the employee user accounts are replicated in the LDAP server from Active Directory.</li><li>All company employees, customers, and partners need access to certain applications through Okta.</li></ul>The company has integrated both Active Directory and LDAP with Okta.<br>Is this a valid method to resolve the user duplication arising from the employee accounts existing in both Active Directory and LDAP?",
         "options": [
             {"text": "If the employee, customer, and partner accounts are stored in different Organizational Units (OUs) in the LDAP server, then Okta can be configured to exclude the employee OU. This action will prevent the collision with the same users also being imported from Active Directory.",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this statement true about applications that are available in the Okta Integration Network (OIN)?",
+        "options": [
+            {"text": "Only Security Assertion Markup Language (SAML)-enabled OIN applications support provisioning",  "correct": false},
+            {"text": "OIN applications are available to all Okta customers",  "correct": true},
+            {"text": "All OIN applications have native mobile apps",  "correct": false}
+        ]
+    },
+    {
+        "stem": "Is this what is required to deploy RSA SecureID for high availability with Okta?",
+        "options": [
+            {"text": "Okta RADIUS Agent",  "correct": false},
+            {"text": "Okta RSA Agent with the configuration <strong>ssIPinningEnabled = false</strong>",  "correct": false},
+            {"text": "2 On-Prem MFA Agents",  "correct": true}
+        ]
+    },
+    {
+        "stem": "An Active Directory mastered user signs into Okta org with Just-In-Time (JIT) provisioning enabled for the first time. However, the end user's Active Directory group memberships are <strong>NOT</strong> carried over into Okta.<br>Is this a possible reason why the groups did not import?",
+        "options": [
+            {"text": "Group push was <strong>NOT</strong> enabled.",  "correct": false},
+            {"text": "The groups and the user are in the same domain.",  "correct": false},
+            {"text": "The end user was activated manually.",  "correct": false},
+            {"text": "The groups and the user are in different domains.",  "correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator has configured a human resource (HR) application to profile master Okta users. The HR application is set up as the highest priority profile master for a group of end users. Reactivate deactivated users is enabled.<br>Is this the expected behavior when a user is deactivated in the HR application?",
+        "options": [
+            {"text": "The user loses accesss to the application but maintains access to Okta and all other applciations.",  "correct": false},
+            {"text": "The user account is suspended in Okta and all downstream applications immediately.",  "correct": false},
+            {"text": "The user account is deactivated in Okta",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this a configurable option in an Okta sign-on policy?",
+        "options": [
+            {"text": "Allow or deny access",  "correct": true},
+            {"text": "Enforce the enrollment for multifactor authentication (MFA)",  "correct": false},
+            {"text": "Set the password length requirement",  "correct": false},
+            {"text": "Prompt for multifactor authentication (MFA) challenge",  "correct": true},
+            {"text": "Set the length of the security question answer",  "correct": false}
+        ]
+    },
+    {
+        "stem": "A company has configured Okta with Lightweight Directory Access Protocol (LDAP) Directory. An application the company uses requires an LDAP managerId attribute.<br>Is this statement about LDAP profile mappings true?",
+        "options": [
+            {"text": "Any attributes can be mapped to the application profile, as long as they are imported into Okta.",  "correct": true},
+            {"text": "LDAP attributes can only be mapped through Okta API.",  "correct": false}
+        ]
+    },
+    {
+        "stem": "Is this one of the permissions that is required when provisioning groups from Okta to Active Directory?",
+        "options": [
+            {"text": "msDS-ResultantPSO permission for group objects on the target organizational unit (OU)",  "correct": false},
+            {"text": "Domain Admin permission for group objects on the target organizational unit (OU)",  "correct": false},
+            {"text": "Create child permission for group objects on the target organizational unit (OU)",  "correct": true}
+        ]
+    },
+    {
+        "stem": "A custom application is calling Okta Management APIs.<br>Is this the way the application can remain within the rate limits?",
+        "options": [
+            {"text": "By using an API gateway between the application and Okta",  "correct": false},
+            {"text": "By using the Introspect API endpoint",  "correct": false},
+            {"text": "By counting every API call from the application",  "correct": false},
+            {"text": "By using the Okta rate limiting headers",  "correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta user needs to approve a request for access to an application that requires the assignment of a license.<br>Is this the entitlement option that will enable the approver to assign the license?",
+        "options": [
+            {"text": "Hidden",  "correct": false},
+            {"text": "Read",  "correct": false},
+            {"text": "Update",  "correct": false},
+            {"text": "Write",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this statement true about Universal Directory mappings?",
+        "options": [
+            {"text": "Universal Directory supports Java regular expression for transforming data attributes in the mappings",  "correct": false},
+            {"text": "Universal Directory can map attributes both ways from Okta to applications and from applications to Okta, if supported by the application",  "correct": true},
+            {"text": "Universal Directory supports Spring Expression Language (SpEL) for transforming data attributes in the mappings",  "correct": true},
+            {"text": "Universal Directory can only map attributes from Okta to applications",  "correct": false}
+        ]
+    },
+    {
+        "stem": "Is this a true statement regarding the Single Sign-On (SSO) URL for a SAML application when an administrator uses the Okta Application Integration Wizard (AIW)?",
+        "options": [
+            {"text": "The SSO URL represents a user's explicit permission to allow an application to access resources protected by scopes.",  "correct": false},
+            {"text": "The SSO URL provides SSO for applications that do <strong>NOT</strong> support proprietary federated sign-on methods.",  "correct": false},
+            {"text": "The SSO URL is where the SAML assertion is sent with an HTTP POST.",  "correct": true}
+        ]
+    },
+    {
+        "stem": "A developer needs to build an internal application that uses Okta for authentication and authorization. The developer has asked the Okta Administrator to create an OAuth 2.0 server in Okta.<br>Is this one of the tasks the administrator must perform in the Okta Administrator console?",
+        "options": [
+            {"text": "Create an OpenID Connect (OIDC) application",  "correct": true},
+            {"text": "Create a basic template authentication application",  "correct": false},
+            {"text": "Create an authorization server",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this an example of what a group in Okta can be used for?",
+        "options": [
+            {"text": "To assign specific entitlements within an application",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this the purpose of rate limiting?",
+        "options": [
+            {"text": "Creating API endpoint throttling limits to protect the LDAP service from load spikes or service interruptions caused by submitted requests",  "correct": false},
+            {"text": "Creating API endpoint throttling limits to protect the AD service from load spikes or service interruptions caused by submitted requests",  "correct": true},
+            {"text": "Creating API endpoint throttling limits to protect the Okta service from load spikes or service interruptions caused by submitted requests","correct": true}
         ]
     }
 ]
