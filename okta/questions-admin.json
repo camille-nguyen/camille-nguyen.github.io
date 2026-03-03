@@ -241,5 +241,14 @@
             {"text": "Ensure all users with a specified attribute are assigned to the same applications",  "correct": false, "explanation": "Incorrect because attribute matching is <strong>NOT</strong> used to assign users to applications."},
             {"text": "Determine whether an imported user is new or if the user profile already exists in Okta","correct": true}
         ]
+    },
+    {
+        "stem": "An Okta Administrator wants to find successful Okta logins for a specific user.<br>Is this the System Log event that the administrator should query?",
+        "options": [
+            {"text": "eventType eq \"user.authentication.sso.success\"",  "correct": false, "explanation": "Incorrect because this query is used to search for Application Access events."},
+            {"text": "user.account.lock",  "correct": false, "explanation": "Incorrect because this query is used to search for User Locked Out events."},
+            {"text": "user.authentication.success","correct": false, "explanation": "Incorrect because this query is not the standard event for primary Okta sign-in."},
+            {"text": "user.session.start","correct": true}
+        ]
     }
 ]

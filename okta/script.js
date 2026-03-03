@@ -11,6 +11,7 @@
   let currentOptionOrder = [];
   let currentOptionIndex = 0;
   let results = []; // {questionId, correct:boolean, selectedOptionId|null, presentedOptions:[]}
+  let questionActive = false;
 
   // DOM Elements
   const qIndexEl = document.getElementById('qIndex');
@@ -86,6 +87,8 @@
       return;
     }
 
+    questionActive = true;
+
     const q = questions[qOrder[index]];
     qIndexEl.textContent = index + 1;
     stemEl.innerHTML = q.stem;
@@ -147,6 +150,7 @@
 
   // Finalize question for multiple correct answers
   function finalizeQuestion(correct) {
+    questionActive = false; 
     const r = results[results.length - 1];
     r.correct = correct !== undefined ? correct : true; // default true if no wrong option selected
 
@@ -356,8 +360,17 @@
     nextQBtn.addEventListener('click', () => finalizeQuestion(false, null));
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); handleSelect(); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); handleReject(); }
+      if (!questionActive) return;
+
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handleSelect();
+      }
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleReject();
+      }
     });
   }
 
