@@ -250,5 +250,22 @@
             {"text": "user.authentication.success","correct": false, "explanation": "Incorrect because this query is not the standard event for primary Okta sign-in."},
             {"text": "user.session.start","correct": true}
         ]
+    },
+    {
+        "stem": "In an Okta org, Okta sourced users are configured with Active Directory (AD). An Okta Administrator needs to push passwords to AD.<br>Is this a configuration the administrator should perform to enable password synchronization?",
+        "options": [
+            {"text": "Configure Agentless Desktop Single Sign-on (DSSO)",  "correct": false, "explanation": "Incorrect because DSSO is used for delegated authentication when Active Directory (AD) performs primary authentication. In this scenario, users are Okta-sourced."},
+            {"text": "Enable Delegated Authentication to Active Directory, if it is disabled",  "correct": false, "explanation": "Incorrect because Delegated Authentication needs to be disabled for password synchronization from Okta to AD."},
+            {"text": "Install the Okta AD Password Sync Agent",  "correct": false, "explanation": "This option is incorrect because the Okta AD Password Sync Agent is used to sync the AD password to Okta."},
+            {"text": "Disable Delegated Authentication to Active Directory, if it is enabled",  "correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator is trying to integrate Okta Verify with the company's Endpoint Detection and Response (EDR) product. Is this a pre-requisite condition for a target device in this situation?",
+        "options": [
+            {"text": "A macOS device that is registered but not managed",  "correct": false, "explanation": "Incorrect because to be enrolled in Okta Verify targeted devices must be either macOS devices that are registered and managed or Windows devices that are registered (but don't need to be managed)."},
+            {"text": "A Windows device that is registered",  "correct": true, "explanation": "Correct because to be enrolled in Okta Verify targeted devices must be either macOS devices that are registered and managed or Windows devices that are registered (but don't need to be managed)."},
+            {"text": "A macOS device that is registered and managed","correct": true, "explanation": "Correct because to be enrolled in Okta Verify targeted devices must be either macOS devices that are registered and managed or Windows devices that are registered (but don't need to be managed)."}
+        ]
     }
 ]

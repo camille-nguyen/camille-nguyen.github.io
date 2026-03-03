@@ -193,25 +193,27 @@
       feedbackHtml += `<div style="margin-top:12px;">`;
 
       uniqueExplained.forEach(opt => {
-        if (opt.explanation) {
 
-          const color = opt.correct ? "#6ee7b7" : "#f87171";
-          const bg = opt.correct ? "#064e3b" : "#7f1d1d";
+      const color = opt.correct ? "#6ee7b7" : "#f87171";
+      const bg = opt.correct ? "#064e3b" : "#7f1d1d";
 
-          feedbackHtml += `
-            <div style="
-              margin-top:8px;
-              padding:10px;
-              background:${bg};
-              border-radius:8px;
-              border-left:4px solid ${color};
-            ">
-              <strong style="color:${color};">${opt.text}</strong><br>
-              <span>${opt.explanation}</span>
-            </div>
-          `;
-        }
-      });
+      feedbackHtml += `
+        <div style="
+          margin-top:8px;
+          padding:10px;
+          background:${bg};
+          border-radius:8px;
+          border-left:4px solid ${color};
+        ">
+          <strong style="color:${color};">${opt.text}</strong>
+          ${
+            opt.explanation
+              ? `<br><span>${opt.explanation}</span>`
+              : ''
+          }
+        </div>
+      `;
+    });
 
       feedbackHtml += `</div>`;
     }
