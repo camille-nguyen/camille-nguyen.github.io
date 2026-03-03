@@ -267,5 +267,36 @@
             {"text": "A Windows device that is registered",  "correct": true, "explanation": "Correct because to be enrolled in Okta Verify targeted devices must be either macOS devices that are registered and managed or Windows devices that are registered (but don't need to be managed)."},
             {"text": "A macOS device that is registered and managed","correct": true, "explanation": "Correct because to be enrolled in Okta Verify targeted devices must be either macOS devices that are registered and managed or Windows devices that are registered (but don't need to be managed)."}
         ]
+    },
+    {
+        "stem": "Is this a task that the Rate Limit Dashboard allows an Okta Administrator to do?",
+        "options": [
+            {"text": "Block specific IPs from utilizing the Okta API",  "correct": false, "explanation": "Incorrect because the Rate Limit Dashboard does <strong>NOT</strong> allow an Okta Administrator to block specific IPs from utilizing the Okta API"},
+            {"text": "Help understand the use of each API and investigate potential rate limit issues",  "correct": true, "explanation": "Correct because the Rate Limit Dashboard allows an adminstrator to see an overview of all API rate limit events over a period of up to 3 months"},
+            {"text": "Enforce Client-based rate limiting",  "correct": true, "explanation": "Correct because the Rate Limit Dashboard allows administrators to set Client-based rate limiting on the Okta hosted login page and the Authentication API"},
+            {"text": "Manage existing API Tokens","correct": false, "explanation": "Incorrect because the Rate Limit Dashboard does <strong>NOT</strong> allow an Okta Administrator to manage existing API Tokens"}
+        ]
+    },
+    {
+        "stem": "Is this statement true about app integration notes?",
+        "options": [
+            {"text": "App integration notes can reduce help desk calls, provide troubleshooting assistance, and increase end-user self-service",  "correct": true},
+            {"text": "App integration notes will be displayed when a user hovers over the app card on the Okta End-User Dashboard","correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta administrator discovers that some functions are <strong>NOT</strong> working as expected after creating an API token. Is this a possible cause?",
+        "options": [
+            {"text": "The token was created with Super Administrator permissions",  "correct": false, "explanation": "Incorrect because the operations that can be performed by the API token are determined by the specific privileges of the Okta Administrator who created the token. Super Administrator permissions would allow all API functions."},
+            {"text": "The Okta Administrator does <strong>NOT</strong> have correct permissions","correct": true, "explanation": "Incorrect because the operations that can be performed by the API token are determined by the specific privileges of the Okta Administrator who created the token"}
+        ]
+    },
+    {
+        "stem": "Workday is the profile source for Okta and Okta provisions users to Active Directory. The usernames from Workday have this format: user@abc.com. An Okta Administrator is tasked with provisioning users to AD with a different User Principal Name (UPN) of user@xyz.com.<br>Is this the best way the administrator can accomplish the task?",
+        "options": [
+            {"text": "Use attribute level mastering to assign UPN from AD",  "correct": false, "explanation": "Incorrect because attribute level mastering will only import from AD, it will not update attributes in AD."},
+            {"text": "Use attribute mapping and Okta Expression Language to change the domain for the UPN in Profile Editor",  "correct": true, "explanation": "Correct because Okta Expression Language allows transformation of attribute values."},
+            {"text": "Modify the profile source priority to make AD the primary profile source and Workday the secondary profile source","correct": false, "explanation": "Incorrect because profile source priority will only import data from profile sources, it will not update attributes in the profile sources."}
+        ]
     }
 ]
