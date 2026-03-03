@@ -197,10 +197,49 @@
     {
         "stem": "Is this the purpose of an MFA enrollment policy?",
         "options": [
-            {"text": "Controls how end users interact with an application",  "correct": false},
-            {"text": "Determines the types of authentication challenges end users experience when they sign into their account",  "correct": false},
-            {"text": "Determines which authenticators are required for administrators",  "correct": false},
-            {"text": "Controls how end users enroll in an authenticator","correct": true}
+            {"text": "Controls how end users interact with an application",  "correct": false, "explanation": "This option is incorrect because an MFA enrollment policy controls how end users enroll in an authenticator."},
+            {"text": "Determines the types of authentication challenges end users experience when they sign into their account",  "correct": false, "explanation": "This option is incorrect because the global session determines the types of authentication challenges end users experience when they sign into their account."},
+            {"text": "Determines which authenticators are required for administrators",  "correct": false, "explanation": "This option is incorrect because an MFA enrollment policy controls how end users enroll in an authenticator."},
+            {"text": "Controls how end users enroll in an authenticator","correct": true, "explanation": "This option is correct"}
+        ]
+    },
+    {
+        "stem": "Is this an example of an authenticator method with Device Bound and Hardware Protected characteristics?",
+        "options": [
+            {"text": "Email",  "correct": false, "explanation": "This option is incorrect because the email authenticator is a method that has the User Presence characteristic, but <strong>NOT</strong> the Device Bound or Hardware Protected characteristics."},
+            {"text": "Google Authenticator","correct": false, "explanation": "This option is incorrect because the Google Authenticator is a method that has the Device Bound characteristic, but <strong>NOT</strong> the Hardware Protected characteristics"}
+        ]
+    },
+    {
+        "stem": "Is this a configurable password setting in Okta?",
+        "options": [
+            {"text": "Common password check",  "correct": true},
+            {"text": "Minimum length",  "correct": true},
+            {"text": "Number Challenge","correct": false, "explanation": "This option is incorrect because Number Challenge is a configurable Okta Verify factor setting, <strong>NOT</strong> a configurable password setting"}
+        ]
+    },
+    {
+        "stem": "A company recently allowed 100% work-from-home for all employees. The Chief Security Officer wants to ensure user step-up authentication is enforced if an employee uses a new device, does impossible travel, or logs in from a blacklisted IP range.<br>Is this how an Okta Administrator can implement these requirements?",
+        "options": [
+            {"text": "By creating or modifying global session policies with the required behavior detected options.",  "correct": true},
+            {"text": "By creating or modifying a group rule with the required behavior detection options.",  "correct": false, "explanation": "This option is incorrect because group rules <strong>CANNOT</strong> address the required behavior detection options."}
+        ]
+    },
+    {
+        "stem": "Is this a true statement about Active Directory (AD) groups?",
+        "options": [
+            {"text": "AD groups are created in AD and imported to Okta; all AD group changes must be done in Okta and pulled into AD.",  "correct": false, "explanation": "This option is incorrect because AD group changes must be done in AD and pulled into Okta."},
+            {"text": "AD groups are created in a downstream application and managed in the application",  "correct": false, "explanation": "This option is incorrect because AD groups are not created in downstream applications."},
+            {"text": "AD groups are created in AD and imported to Okta; all AD group changes must be done in AD and pulled into Okta.",  "correct": true}
+        ]
+    },
+    {
+        "stem": "Is this an appropriate use case for attribute matching?",
+        "options": [
+            {"text": "Determine what groups a user should be added to based on a particular value of an attribute",  "correct": false, "explanation": "Incorrect because group memberships based on a user's attributes is handled through Group Rules."},
+            {"text": "Ensure that there is <strong>NOT</strong> more than one attribute with the same name",  "correct": false, "explanation": "Incorrect because attribute matching is a feature of profile sources and enforcement of different attribute names would be done by Universal Directory."},
+            {"text": "Ensure all users with a specified attribute are assigned to the same applications",  "correct": false, "explanation": "Incorrect because attribute matching is <strong>NOT</strong> used to assign users to applications."},
+            {"text": "Determine whether an imported user is new or if the user profile already exists in Okta","correct": true}
         ]
     }
 ]

@@ -48,7 +48,8 @@
       options: q.options.map((opt, idx) => ({
         id: String.fromCharCode(97 + idx),
         text: opt.text,
-        correct: opt.correct
+        correct: opt.correct,
+        explanation: opt.explanation || null 
       }))
     }));
 
@@ -160,9 +161,60 @@
     r.correct = allCorrectSelected && !anyIncorrectSelected;
 
     // Show feedback
-    feedback.innerHTML = r.correct
-      ? '<strong>Correct!</strong> You selected all correct options. <i>Press any key to continue.</i>'
-      : `<strong>Incorrect.</strong> Correct options: "${q.options.filter(o=>o.correct).map(o=>o.text).join('", "')}"`;
+    const correctOptions = q.options.filter(o => o.correct);
+    const selectedOptions = (r.selectedOptionIds || [])
+      .map(id => q.options.find(o => o.id === id))
+      .filter(Boolean);
+
+    let feedbackHtml = '';
+
+    feedbackHtml += r.correct
+      ? `<strong style="color:#6ee7b7;">Correct!</strong><br>`
+      : `<strong style="color:#f87171;">Incorrect.</strong><br>`;
+
+    // 🔹 Build list of options to explain
+    const explainedOptions = [...selectedOptions];
+
+    // Also include missed correct answers
+    correctOptions.forEach(opt => {
+      if (!selectedOptions.includes(opt)) {
+        explainedOptions.push(opt);
+      }
+    });
+
+    // Remove duplicates
+    const uniqueExplained = [...new Set(explainedOptions)];
+
+    if (uniqueExplained.length > 0) {
+      feedbackHtml += `<div style="margin-top:12px;">`;
+
+      uniqueExplained.forEach(opt => {
+        if (opt.explanation) {
+
+          const color = opt.correct ? "#6ee7b7" : "#f87171";
+          const bg = opt.correct ? "#064e3b" : "#7f1d1d";
+
+          feedbackHtml += `
+            <div style="
+              margin-top:8px;
+              padding:10px;
+              background:${bg};
+              border-radius:8px;
+              border-left:4px solid ${color};
+            ">
+              <strong style="color:${color};">${opt.text}</strong><br>
+              <span>${opt.explanation}</span>
+            </div>
+          `;
+        }
+      });
+
+      feedbackHtml += `</div>`;
+    }
+
+    feedbackHtml += `<div style="margin-top:12px;"><i>Press any key to continue.</i></div>`;
+
+    feedback.innerHTML = feedbackHtml;
 
     // 🔊 Play sound depending on correctness
     if (r.correct) {
