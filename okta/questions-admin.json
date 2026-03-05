@@ -298,5 +298,52 @@
             {"text": "Use attribute mapping and Okta Expression Language to change the domain for the UPN in Profile Editor",  "correct": true, "explanation": "Correct because Okta Expression Language allows transformation of attribute values."},
             {"text": "Modify the profile source priority to make AD the primary profile source and Workday the secondary profile source","correct": false, "explanation": "Incorrect because profile source priority will only import data from profile sources, it will not update attributes in the profile sources."}
         ]
+    },
+    {
+        "stem": "Is this the correct username format when testing Delegated Authentication against Active Directory?",
+        "options": [
+            {"text": "UPN - Universal Principal Name",  "correct": true, "explanation":"Correct as Okta requires using the UPN when testing Delegated Authentication against Active Directory."},
+            {"text": "Display Name","correct": false, "explanation":"Incorrect as Okta does <strong>NOT</strong> require using Display Name when testing Delegated Authentication against Active Directory."}
+        ]
+    },
+    {
+        "stem": "Is this a benefit of using SAML for authentication and authorization?",
+        "options": [
+            {"text": "SAML improves the customer sign-in experience",  "correct": true, "explanation":"Correct because SAML helps reduce the attack surface for organizations and improves the customer's sign-in experience."},
+            {"text": "SAML enables authentication for applications that do <strong>NOT</strong> support federated Single Sign-On (SSO)","correct": false, "explanation":"Incorrect because SAML supports federated SSO."}
+        ]
+    },
+    {
+        "stem": "Is this a true statement about Okta Workflows?",
+        "options": [
+            {"text": "A card represents one specific step in a flow.",  "correct": true, "explanation":"Correct because individual cards are used to build a Workflow and represent specific steps in a flow."},
+            {"text": "Application access for Workflows is controlled by either API tokens or Node.js commands.",  "correct": false, "explanation":"Incorrect because application access for Workflows is controlled by either API tokens or OAuth scopes."},
+            {"text": "Cards are hard coded and <strong>NOT</strong> customizable.",  "correct": false, "explanation":"Incorrect because cards are <strong>NOT</strong> hard coded and are very customizable. An Okta Administrator can change the title and description of a card, reorder the fields that are included on a card, or select the output fields to be displayed on the card."},
+            {"text": "An Okta Administrator can check the history logs of a flow for the past 180 days.",  "correct": false, "explanation":"Incorrect because an Okta Administrator can check flow history logs for all the times a flow has run in the past 30 days."},
+            {"text": "The use of any Event or Action card in a Flow requires a connection with a third-party application","correct": true, "explanation":"Correct beccause Okta Workflows requires connectino to a third party application either through a pre-built Okta Connector or via a custom API connection using the API Connector card"}
+        ]
+    },
+    {
+        "stem": "Is this capability supported by the Okta org authorization server but <strong>NOT</strong> supported by the Okta custom authorization server?",
+        "options": [
+            {"text": "Mint Access Tokens with Okta API Scopes","correct": true, "explanation":"Correct because this capability is supported by the Okta org authorization server but <strong>NOT</strong> the Okta custom authorization server."}
+        ]
+    },
+    {
+        "stem": "Is this a supported feature in Okta Org2Org?",
+        "options": [
+            {"text": "Authentication through WS-Federation",  "correct": false, "explanation":"Incorrect because Okta Org2Org only supports SAML or SWA for authentication."},
+            {"text": "Import profile updates",  "correct": true, "explanation":"Correct because updates made to a user's profile in the connected org (spoke) are downloaded and applied to the Okta user profile in the central Okta org (hub)."},
+            {"text": "Automate password reset",  "correct": false, "explanation":"Incorrect because this is an Okta Automation option but <strong>NOT</strong> a feature of Org2Org."},
+            {"text": "Authentication through OIDC",  "correct": false, "explanation":"Incorrect because Okta Org2Org only supports SAML or SWA for authentication."},
+            {"text": "Import New Users","correct": true, "explanation":"Correct because users created in the connected org (spoke) can be imported into the central Okta org (hub)."}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator is configuring a global session policy rule.<br>Is this a condition that can be configured to prompt users for Multifactor Authentication?",
+        "options": [
+            {"text": "When signing in with a new device cookie",  "correct": true, "explanation":"Correct because it is one of the available options to prompt users for Multifactor Authentication."},
+            {"text": "When the user has <strong>NOT</strong> signed on in the past 14 days","correct": true, "explanation":"Incorrect because an Okta Administrator <strong>CANNOT</strong> select this option to prompt users for Multifactor Authentication."}
+        ]
     }
 ]
