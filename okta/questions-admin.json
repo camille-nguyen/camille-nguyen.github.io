@@ -345,5 +345,123 @@
             {"text": "When signing in with a new device cookie",  "correct": true, "explanation":"Correct because it is one of the available options to prompt users for Multifactor Authentication."},
             {"text": "When the user has <strong>NOT</strong> signed on in the past 14 days","correct": true, "explanation":"Incorrect because an Okta Administrator <strong>CANNOT</strong> select this option to prompt users for Multifactor Authentication."}
         ]
+    },
+    {
+        "stem": "Is this a valid use case for utilizing a Routing Rule with an external Identity Provider (IdP)?",
+        "options": [
+            {"text": "A routing rule can route to alternate or legacy authentication for off-network users and use Okta for on-network users",  "correct": true, "explanation":"Correct as a routing rule can use a user's network location as criteria."},
+            {"text": "A routing rule can block specific users from accessing an external IdP","correct": false, "explanation":"Incorrect as a routing rule cannot block users from accessing an external IdP."}
+        ]
+    },
+    {
+        "stem": "Can an Okta Administrator use this parameter to define a dynamic zone?",
+        "options": [
+            {"text": "Autonomous System Number (ASN)","correct": true},
+            {"text": "IP address type","correct": true},
+            {"text": "Location","correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator needs to ensure high availability of the organization's Okta On Prem Provisioning (OPP) agent.<br>Will this configuration achieve the administrator's objective?",
+        "options": [
+            {"text": "Modify the OktaAgentService.exe.instance file and configure it for high availability",  "correct": false, "explanation":"Incorrect because the Okta On Prem Provisioning (OPP) agent intelligently configures high availability when two or more Okta OPP agents are installed on separate servers. In addition, the OktaAgentService.exe.instance file is not used for the OPP agent configuration."},
+            {"text": "Install and configure at least two OPP server agents on separate servers","correct": true, "explanation":"Correct because the Okta On Prem Provisioning (OPP) agent intelligently configures high availability when two or more Okta OPP agents are installed on separate servers."}
+        ]
+    },
+    {
+        "stem": "Is this something an Okta Administrator should consider when using the LDAP agent for integrating an LDAP directory with Okta?",
+        "options": [
+            {"text": "Push groups should be used for provisioning Okta groups to the LDAP directory","correct": false, "explanation":"Incorrect as Push Groups are not supported by the LDAP agent."}
+        ]
+    },
+    {
+        "stem": "Is this the expected behavior when an incremental import from an integration is performed?",
+        "options": [
+            {"text": "Only updated users since the last import are brought into Okta","correct": false, "explanation":"Incorrect because updated users <strong>and groups</strong> are imported in an incremental import."},
+            {"text": "Updated users and groups since the last import are brought into Okta","correct": true}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator is configuring an Okta Radius agent server for VPN service. While testing, the administrator noticed the authentication is failing. The authentication logs show an issue with a malformed username, even though the user has entered it correctly.<br>Is this a possible cause for the issue?",
+        "options": [
+            {"text": "TCP Port 443 is <strong>NOT</strong> open between the Radius agent server and Okta services.",  "correct": false, "explanation":"Incorrect because if the administrator can see a malformed username in the logs, it means there is communication between the Okta Radius agent and Okta services."},
+            {"text": "The VPN server is using MSCHAPv2 instead of PAP authentication.",  "correct": true, "explanation":"Correct because a malformed username in the logs indicates that the VPN server is using MSCHAPv2 to encode the username. The administrator can fix the issue by making sure that only PAP authentication is enabled on the VPN server."},
+            {"text": "UDP Port 1812 is not opened between the Radius agent server and the VPN gateway.","correct": false, "explanation":"Incorrect because if the administrator can see a malformed username in the logs, it means there is communication between the Okta Radius agent and the VPN server."}
+        ]
+    },
+    {
+        "stem": "A company is considering Okta Workflows to replace their legacy code for onboarding and off-boarding of users. Can this scenario be automated with Okta Workflows?",
+        "options": [
+            {"text": "Configure a direct, real-time sync with an application.",  "correct": false, "explanation":"Incorrect because Okta Workflows does <strong>NOT</strong> support synchronous flows."},
+            {"text": "Trigger onboarding when a user is created in Okta","correct": true},
+            {"text": "Provision or deprovision users in downstream applications","correct": true},
+            {"text": "Run scheduled workflows to audit or clean up users","correct": true},
+            {"text": "Replace real-time authentication or inline authorization logic","correct": false}
+        ]
+    },
+    {
+        "stem": "Is this the default period of time that Okta stores events in the System Log?",
+        "options": [
+            {"text": "30 days",  "correct": false},
+            {"text": "60 days",  "correct": false},
+            {"text": "365 days",  "correct": false},
+            {"text": "90 days","correct": true}
+        ]
+    },
+    {
+        "stem": "Can an Okta Administrator configure this as a profile source?",
+        "options": [
+            {"text": "Profile enrollment policy",  "correct": false, "explanation":"Incorrect as the profile enrollment policy determines what data is required from a user before they can access an app. It is not related to profile sourcing."},
+            {"text": "Google Workspace","correct": true, "explanation":"Correct because Google Workspace is an app that allows profile sourcing."}
+        ]
+    },
+    {
+        "stem": "Is this how an Okta Administrator can delete a <strong>pre-existing</strong> group in a downstream application via Group Push?",
+        "options": [
+            {"text": "Select the Push Now option",  "correct": false},
+            {"text": "Rename the group",  "correct": false},
+            {"text": "Link an Okta Group to the pre-existing downstream group and then unlink the push group selecting \"Delete the group in the target app\"",  "correct": true},
+            {"text": "Link an Okta Group to the pre-existing downstream group and then delete the Okta group",  "correct": true},
+            {"text": "Select \"Delete the group in the target app\"",  "correct": false}
+        ]
+    },
+    {
+        "stem": "An Okta Administrator is trying to find events in which the user was allowed access and the sign-in request was evaluated as suspicious by ThreatInsight.<br>Is this a valid query the administrator can use to filter the System Log to find these events?",
+        "options": [
+            {"text": "<i>eventType eq \"security.threat.detected\" or debugContext.debugData.th eq \"true\"</i>","correct": false, "explanation":"Incorrect because it does not include a search query for end user allowed access. debugContext.debugData.th eq \"true\" is another way of filtering ThreatInsight's flagged suspicious events."},
+            {"text": "<i>eventType eq \"user.session.start\" or debugContext.debugData.th eq \"true\"</i>","correct": true}
+        ]
+    },
+    {
+        "stem": "In an Okta org, there are two profile sources: Active Directory (AD) and Workday. Workday must be the profile source for Title.<br>Is this the correct action for the Okta Administrator to take?",
+        "options": [
+            {"text": "On the Okta user profile, override the Title attribute from the Workday profile source.",  "correct": true, "explanation":"Correct because this configuration will make Workday the profile source for Title."},
+            {"text": "Make Workday the highest directory profile source in Okta.","correct": false, "explanation":"Incorrect because this configuration will make Workday the profile source each time the attribute mappings between sources overlap."}
+        ]
+    },
+    {
+        "stem": "Does this component handle the Kerberos validation in Agentless Desktop Single Sign-On (DSSO)?",
+        "options": [
+            {"text": "Active Directory (AD) agent",  "correct": false, "explanation":"Incorrect because the AD agent is used for integrating Okta with Active Directory."},
+            {"text": "Okta service",  "correct": true, "explanation":"Correct because with agentless DSSO, Kerberos validation is done in the cloud in Okta."},
+            {"text": "Internet Information Services (IIS) server","correct": false, "explanation":"Incorrect because the IIS server handles Kerberos validation in agent-based DSSO."}
+        ]
+    },
+    {
+        "stem": "An Okta Super Administrator is tasked with configuring delegated authentication from Okta to Active Directory (AD). The Administrator needs to adhere to the principle of least privilege.<br>Is this a true statement about the Okta service account in this situation?",
+        "options": [
+            {"text": "The Okta service account must be able to read the Organizational Units (OU) and the user objects for the users who will be authenticating against Okta.",  "correct": true, "explanation":"Correct because the Okta service account must be able to discover and read the User objects it will be providing delegated authentication to."},
+            {"text": "The Okta service account does <strong>NOT</strong> require any special AD permissions in order to facilitate delegated authentication.",  "correct": true, "explanation":"Correct because the Okta service account does not require any special AD permissions in order to authenticate the users."},
+            {"text": "The Okta service account must have the ability to set user password and force apssword change on next logon.","correct": false, "explanation":"Incorrect because the Okta service account does <strong>NOT</strong> need permissions to reset user passwords in order to authenticate users."}
+        ]
+    },
+    {
+        "stem": "Will this action deactivate a user's downstream application account?",
+        "options": [
+            {"text": "The user's Okta account is created.",  "correct": false, "explanation":"Incorrect because there is no effect on a user's external application account if the user's Okta account is created."},
+            {"text": "The user's Okta account is updated",  "correct": false, "explanation":"Incorrect because there is no effect on a user's external application account if the user's Okta account is updated."},
+            {"text": "The user's Okta account is deactivated",  "correct": true, "explanation":"Correct because if the user's Okta account is deactivated, the user will be unassigned from the application and the user's external application account will be automatically deactivated."},
+            {"text": "The user is unassigned from the app integration in Okta.","correct": true, "explanation":"Correct because if the user's Okta account is deactivated, the user will be unassigned from the application and the user's external application account will be automatically deactivated."}
+        ]
     }
 ]
